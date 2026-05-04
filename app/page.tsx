@@ -6,7 +6,7 @@ const contactEmail = "direccion-proyectos@vortexdynamics.es";
 const contactPhone = "951 547 626";
 const contactPhoneHref = "tel:+34951547626";
 const whatsappHref = "https://wa.me/34951547626";
-const formAction = "https://formspree.io/f/TU_ID";
+const formAction = "https://formspree.io/f/xdabgonv";
 
 type IconName = "check" | "arrowRight" | "chart" | "cloud" | "shield" | "workflow" | "mail" | "phone" | "pin";
 
