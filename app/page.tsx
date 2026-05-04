@@ -5,6 +5,8 @@ const logoUrl = "/vortexdynamics.png";
 const contactEmail = "direccion-proyectos@vortexdynamics.es";
 const contactPhone = "951 547 626";
 const contactPhoneHref = "tel:+34951547626";
+const whatsappHref = "https://wa.me/34951547626";
+const formAction = "https://formspree.io/f/TU_ID";
 
 type IconName = "check" | "arrowRight" | "chart" | "cloud" | "shield" | "workflow" | "mail" | "phone" | "pin";
 
@@ -84,11 +86,11 @@ type ButtonProps = {
 };
 
 function Button({ children, variant = "primary", href = "#contacto" }: ButtonProps) {
-  const base = "inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold transition focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2";
+  const base = "group inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 hover:-translate-y-0.5";
   const variants: Record<ButtonVariant, string> = {
-    primary: "bg-teal-600 text-white hover:bg-teal-700",
-    secondary: "border border-slate-300 bg-white text-slate-900 hover:bg-slate-50",
-    light: "bg-white text-teal-700 hover:bg-slate-100",
+    primary: "bg-teal-600 text-white shadow-lg shadow-teal-600/25 hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30",
+    secondary: "border border-slate-300 bg-white text-slate-900 hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700",
+    light: "bg-white text-teal-700 shadow-lg shadow-teal-900/10 hover:bg-slate-100 hover:shadow-xl",
   };
 
   return (
@@ -104,7 +106,7 @@ type CardProps = {
 };
 
 function Card({ children, className = "" }: CardProps) {
-  return <div className={`rounded-3xl border border-slate-100 bg-white shadow-sm ${className}`}>{children}</div>;
+  return <div className={`rounded-3xl border border-slate-100 bg-white shadow-sm transition-all duration-500 ${className}`}>{children}</div>;
 }
 
 type Service = {
@@ -151,11 +153,21 @@ const pillars = [
   ["Datos", "Power BI"],
 ] as const;
 
+const leadBenefits = ["Diagnóstico gratuito", "Sin compromiso", "Respuesta en menos de 24 horas"];
+
 export const metadata: Metadata = {
-  title: "Vortex Dynamics | Consultoría Microsoft Business Central",
+  title: "Vortex Dynamics | Consultoría Business Central y Microsoft ERP",
   description:
-    "Vortex Dynamics es una consultora empresarial especializada en implantación de Microsoft Dynamics 365 Business Central, Power BI y soluciones Microsoft.",
-  keywords: ["Business Central", "Microsoft Partner", "Dynamics 365", "consultoría ERP", "Power BI", "Microsoft 365"],
+    "Consultoría empresarial especializada en implantación de Microsoft Dynamics 365 Business Central para empresas que buscan control, eficiencia y rentabilidad.",
+  keywords: [
+    "consultor business central españa",
+    "implantar dynamics 365 business central",
+    "partner microsoft erp",
+    "consultoría business central madrid",
+    "consultoría ERP",
+    "Power BI",
+    "Microsoft 365",
+  ],
   icons: {
     icon: logoUrl,
     shortcut: logoUrl,
@@ -180,75 +192,121 @@ export const selfTests = [
   { name: "los servicios usan iconos locales válidos", pass: services.every((service) => service.icon in iconPaths) },
   { name: "los pilares se renderizan con título y texto", pass: pillars.every((pillar) => pillar.length === 2) },
   { name: "los enlaces de contacto tienen formato válido", pass: contactEmail.includes("@") && contactPhoneHref.startsWith("tel:") },
+  { name: "incluye botón de WhatsApp", pass: whatsappHref.includes("wa.me") },
+  { name: "incluye formulario de captación", pass: formAction.includes("formspree.io") },
 ];
 
 export default function VortexDynamicsWebsite() {
   return (
-    <main className="min-h-screen bg-white text-slate-950">
-      <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur">
+    <main className="min-h-screen overflow-hidden bg-white text-slate-950">
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(28px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+          from { opacity: 0; transform: translateX(34px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes floatSoft {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-12px); }
+        }
+
+        @keyframes pulseGlow {
+          0%, 100% { opacity: 0.45; transform: scale(1); }
+          50% { opacity: 0.8; transform: scale(1.08); }
+        }
+
+        @keyframes shine {
+          from { transform: translateX(-120%) rotate(15deg); }
+          to { transform: translateX(220%) rotate(15deg); }
+        }
+
+        .animate-fade-up { animation: fadeInUp 0.8s ease both; }
+        .animate-fade-right { animation: fadeInRight 0.85s ease both; }
+        .animate-delay-1 { animation-delay: 0.12s; }
+        .animate-delay-2 { animation-delay: 0.24s; }
+        .animate-delay-3 { animation-delay: 0.36s; }
+        .float-soft { animation: floatSoft 5s ease-in-out infinite; }
+        .pulse-glow { animation: pulseGlow 5s ease-in-out infinite; }
+        .shine-card::after {
+          content: "";
+          position: absolute;
+          inset: -30%;
+          width: 35%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+          animation: shine 5.5s ease-in-out infinite;
+          pointer-events: none;
+        }
+      `}</style>
+
+      <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/85 backdrop-blur-xl transition-all duration-300">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#inicio" className="flex items-center gap-3" aria-label="Inicio Vortex Dynamics">
-            <img src={logoUrl} alt="Vortex Dynamics" className="h-12 w-auto object-contain" />
+          <a href="#inicio" className="flex items-center gap-3 transition duration-300 hover:scale-[1.03]" aria-label="Inicio Vortex Dynamics">
+            <img src={logoUrl} alt="Vortex Dynamics" className="h-12 w-auto object-contain drop-shadow-sm" />
           </a>
 
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex" aria-label="Navegación principal">
-            <a href="#servicios" className="hover:text-teal-600">
-              Servicios
-            </a>
-            <a href="#business-central" className="hover:text-teal-600">
-              Business Central
-            </a>
-            <a href="#metodo" className="hover:text-teal-600">
-              Método
-            </a>
-            <a href="#contacto" className="hover:text-teal-600">
-              Contacto
-            </a>
+            <a href="#servicios" className="transition hover:text-teal-600">Servicios</a>
+            <a href="#business-central" className="transition hover:text-teal-600">Business Central</a>
+            <a href="#metodo" className="transition hover:text-teal-600">Método</a>
+            <a href="#contacto" className="transition hover:text-teal-600">Contacto</a>
           </nav>
 
           <Button>Solicitar diagnóstico</Button>
         </div>
       </header>
 
-      <section id="inicio" className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-cyan-50">
-        <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-teal-200/40 blur-3xl" />
-        <div className="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-cyan-200/40 blur-3xl" />
+      <section id="inicio" className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_#ecfeff,_transparent_34%),linear-gradient(135deg,#f8fafc_0%,#ffffff_48%,#ecfeff_100%)]">
+        <div className="pulse-glow absolute -right-24 -top-24 h-80 w-80 rounded-full bg-teal-200/50 blur-3xl" />
+        <div className="pulse-glow absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-cyan-200/50 blur-3xl" />
+        <div className="absolute left-1/2 top-20 h-48 w-48 rounded-full bg-white/70 blur-3xl" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
-          <div>
-            <p className="mb-4 inline-flex rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700">
+          <div className="animate-fade-up">
+            <p className="mb-4 inline-flex rounded-full border border-teal-100 bg-white/80 px-4 py-2 text-sm font-semibold text-teal-700 shadow-sm backdrop-blur">
               Microsoft Partner · Consultoría empresarial y ERP
             </p>
 
             <h1 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
-              Implantamos Business Central para que tu empresa trabaje mejor.
+              Implantamos Business Central para que tu empresa gane control y rentabilidad.
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              En Vortex Dynamics ayudamos a las empresas a digitalizar sus procesos con soluciones Microsoft, combinando consultoría de negocio, tecnología ERP y acompañamiento cercano.
+              Ayudamos a empresas que trabajan con Excel, sistemas antiguos o procesos dispersos a centralizar su gestión con Microsoft Dynamics 365 Business Central.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button>
-                Hablar con un consultor <Icon name="arrowRight" className="ml-2 h-5 w-5" />
+                Solicitar diagnóstico gratuito <Icon name="arrowRight" className="ml-2 h-5 w-5 transition duration-300 group-hover:translate-x-1" />
               </Button>
-              <Button variant="secondary" href="#servicios">
-                Ver servicios
-              </Button>
+              <Button variant="secondary" href={whatsappHref}>Hablar por WhatsApp</Button>
+            </div>
+
+            <div className="mt-6 grid gap-3 text-sm font-medium text-slate-700 sm:grid-cols-3">
+              {leadBenefits.map((benefit, index) => (
+                <p key={benefit} className={`animate-fade-up flex items-center gap-2 animate-delay-${Math.min(index + 1, 3)}`}>
+                  <Icon name="check" className="h-5 w-5 text-teal-600" /> {benefit}
+                </p>
+              ))}
             </div>
           </div>
 
-          <div>
-            <Card className="border-0 bg-slate-950 p-8 shadow-2xl shadow-teal-900/20 backdrop-blur">
-              <div className="rounded-[2rem] bg-black p-8">
-                <img src={logoUrl} alt="Vortex Dynamics Microsoft Partner" className="mx-auto mb-8 max-h-64 w-full object-contain transition duration-500 hover:scale-105" />
+          <div className="animate-fade-right">
+            <Card className="shine-card float-soft relative overflow-hidden border-white/80 bg-white/75 p-7 shadow-2xl shadow-teal-900/10 backdrop-blur-xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-teal-900/15">
+              <div className="relative rounded-[2rem] border border-slate-100 bg-gradient-to-br from-white via-slate-50 to-cyan-50 p-8 shadow-inner">
+                <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top_right,_rgba(20,184,166,0.16),_transparent_36%)]" />
+                <img src={logoUrl} alt="Vortex Dynamics Microsoft Partner" className="relative mx-auto mb-6 max-h-64 w-full object-contain drop-shadow-[0_18px_28px_rgba(15,23,42,0.12)] transition duration-700 hover:scale-105" />
               </div>
 
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 {pillars.map(([title, text]) => (
-                  <div key={title} className="rounded-2xl bg-white/10 p-4 text-center">
-                    <p className="text-sm font-semibold text-cyan-300">{title}</p>
-                    <p className="mt-1 text-sm text-slate-200">{text}</p>
+                  <div key={title} className="rounded-2xl border border-white/70 bg-white/80 p-4 text-center shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-md">
+                    <p className="text-sm font-semibold text-teal-700">{title}</p>
+                    <p className="mt-1 text-sm text-slate-600">{text}</p>
                   </div>
                 ))}
               </div>
@@ -258,7 +316,7 @@ export default function VortexDynamicsWebsite() {
       </section>
 
       <section id="servicios" className="mx-auto max-w-7xl px-6 py-24">
-        <div className="max-w-3xl">
+        <div className="animate-fade-up max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-teal-600">Servicios</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Consultoría tecnológica orientada al negocio</h2>
           <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -267,9 +325,9 @@ export default function VortexDynamicsWebsite() {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <Card key={service.title} className="p-7 transition hover:-translate-y-1 hover:shadow-xl">
-              <div className="mb-5 inline-flex rounded-2xl bg-teal-50 p-3 text-teal-700">
+          {services.map((service, index) => (
+            <Card key={service.title} className={`animate-fade-up p-7 hover:-translate-y-2 hover:border-teal-100 hover:shadow-xl hover:shadow-teal-900/10 animate-delay-${Math.min(index + 1, 3)}`}>
+              <div className="mb-5 inline-flex rounded-2xl bg-teal-50 p-3 text-teal-700 transition duration-300 group-hover:bg-teal-600 group-hover:text-white">
                 <Icon name={service.icon} className="h-7 w-7" />
               </div>
               <h3 className="text-xl font-semibold">{service.title}</h3>
@@ -279,16 +337,18 @@ export default function VortexDynamicsWebsite() {
         </div>
       </section>
 
-      <section id="business-central" className="bg-slate-950 px-6 py-24 text-white">
-        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
-          <div>
+      <section id="business-central" className="relative overflow-hidden bg-slate-950 px-6 py-24 text-white">
+        <div className="absolute -right-32 top-10 h-72 w-72 rounded-full bg-teal-400/20 blur-3xl" />
+        <div className="absolute bottom-0 left-10 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
+          <div className="animate-fade-up">
             <p className="text-sm font-semibold uppercase tracking-widest text-cyan-300">Dynamics 365 Business Central</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
               Un ERP completo para finanzas, ventas, compras, almacén y operaciones.
             </h2>
           </div>
 
-          <div className="space-y-5 text-lg leading-8 text-slate-300">
+          <div className="animate-fade-up space-y-5 text-lg leading-8 text-slate-300 animate-delay-1">
             <p>
               Business Central permite centralizar la gestión de la empresa en una plataforma cloud integrada con Microsoft 365, Power BI, Teams y el resto del ecosistema Microsoft.
             </p>
@@ -301,7 +361,7 @@ export default function VortexDynamicsWebsite() {
 
       <section id="metodo" className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr]">
-          <div>
+          <div className="animate-fade-up">
             <p className="text-sm font-semibold uppercase tracking-widest text-teal-600">Método</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Implantaciones claras, controladas y con acompañamiento.</h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -311,8 +371,8 @@ export default function VortexDynamicsWebsite() {
 
           <div className="space-y-4">
             {steps.map((step, index) => (
-              <div key={step} className="flex gap-4 rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-600 font-semibold text-white">
+              <div key={step} className={`animate-fade-up flex gap-4 rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-x-1 hover:border-teal-100 hover:shadow-xl hover:shadow-teal-900/10 animate-delay-${Math.min(index + 1, 3)}`}>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-600 font-semibold text-white shadow-lg shadow-teal-600/20">
                   {index + 1}
                 </div>
                 <div>
@@ -325,22 +385,48 @@ export default function VortexDynamicsWebsite() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-teal-600 to-cyan-600 px-6 py-20 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">¿Quieres modernizar tu gestión empresarial?</h2>
-            <p className="mt-4 max-w-2xl text-lg text-cyan-50">
-              Solicita una primera sesión para valorar tus procesos y detectar oportunidades de mejora con Business Central.
+      <section id="contacto" className="relative overflow-hidden bg-gradient-to-br from-teal-600 to-cyan-600 px-6 py-24 text-white">
+        <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/15 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-slate-950/15 blur-3xl" />
+        <div className="relative mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-start">
+          <div className="animate-fade-up">
+            <p className="text-sm font-semibold uppercase tracking-widest text-cyan-100">Contacto</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Solicita tu diagnóstico gratuito de Business Central</h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-cyan-50">
+              Cuéntanos tu situación actual y te ayudamos a detectar oportunidades de mejora en procesos, control financiero, reporting e integración con Microsoft.
             </p>
+            <div className="mt-8 space-y-4 text-cyan-50">
+              <p className="flex items-center gap-3"><Icon name="mail" className="h-5 w-5" /> <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
+              <p className="flex items-center gap-3"><Icon name="phone" className="h-5 w-5" /> <a href={contactPhoneHref}>{contactPhone}</a></p>
+            </div>
           </div>
-          <Button variant="light">Contactar ahora</Button>
+
+          <form action={formAction} method="POST" className="animate-fade-right rounded-3xl bg-white/95 p-6 text-slate-950 shadow-2xl shadow-slate-950/20 backdrop-blur md:p-8">
+            <div className="grid gap-4">
+              <input type="text" name="name" placeholder="Nombre y empresa" required className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10" />
+              <input type="email" name="email" placeholder="Email profesional" required className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10" />
+              <input type="tel" name="phone" placeholder="Teléfono" className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10" />
+              <select name="interest" defaultValue="" className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10">
+                <option value="" disabled>¿Qué necesitas?</option>
+                <option value="Implantar Business Central">Implantar Business Central</option>
+                <option value="Migrar desde otro ERP">Migrar desde otro ERP</option>
+                <option value="Mejorar procesos y reporting">Mejorar procesos y reporting</option>
+                <option value="Soporte o evolución">Soporte o evolución</option>
+              </select>
+              <textarea name="message" placeholder="Cuéntanos brevemente tu situación actual" required rows={5} className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10" />
+              <button type="submit" className="rounded-2xl bg-teal-600 px-6 py-3 font-semibold text-white shadow-lg shadow-teal-600/25 transition duration-300 hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30">
+                Solicitar diagnóstico gratuito
+              </button>
+              <p className="text-sm text-slate-500">Te responderemos en menos de 24 horas laborables.</p>
+            </div>
+          </form>
         </div>
       </section>
 
-      <footer id="contacto" className="bg-slate-950 px-6 py-16 text-white">
+      <footer className="bg-slate-950 px-6 py-16 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
           <div>
-            <div className="mb-5 inline-flex rounded-3xl bg-black p-4">
+            <div className="mb-5 inline-flex rounded-3xl border border-white/10 bg-white p-4 shadow-xl shadow-black/20">
               <img src={logoUrl} alt="Vortex Dynamics" className="h-20 w-auto object-contain" />
             </div>
             <p className="leading-7 text-slate-400">
@@ -351,21 +437,9 @@ export default function VortexDynamicsWebsite() {
           <div>
             <h3 className="mb-4 font-semibold">Contacto</h3>
             <div className="space-y-3 text-slate-400">
-              <p className="flex items-center gap-3">
-                <Icon name="mail" className="h-4 w-4" />
-                <a href={`mailto:${contactEmail}`} className="hover:text-white">
-                  {contactEmail}
-                </a>
-              </p>
-              <p className="flex items-center gap-3">
-                <Icon name="phone" className="h-4 w-4" />
-                <a href={contactPhoneHref} className="hover:text-white">
-                  {contactPhone}
-                </a>
-              </p>
-              <p className="flex items-center gap-3">
-                <Icon name="pin" className="h-4 w-4" /> España
-              </p>
+              <p className="flex items-center gap-3"><Icon name="mail" className="h-4 w-4" /> <a href={`mailto:${contactEmail}`} className="transition hover:text-white">{contactEmail}</a></p>
+              <p className="flex items-center gap-3"><Icon name="phone" className="h-4 w-4" /> <a href={contactPhoneHref} className="transition hover:text-white">{contactPhone}</a></p>
+              <p className="flex items-center gap-3"><Icon name="pin" className="h-4 w-4" /> España</p>
             </div>
           </div>
 
@@ -385,6 +459,10 @@ export default function VortexDynamicsWebsite() {
           © 2026 Vortex Dynamics IT Consulting. Todos los derechos reservados.
         </div>
       </footer>
+
+      <a href={whatsappHref} target="_blank" rel="noreferrer" className="fixed bottom-6 right-6 z-50 rounded-full bg-green-500 px-5 py-4 font-semibold text-white shadow-2xl shadow-green-900/25 transition duration-300 hover:-translate-y-1 hover:bg-green-600 hover:shadow-green-900/35">
+        WhatsApp
+      </a>
     </main>
   );
 }
