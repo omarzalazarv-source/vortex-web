@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import type { ReactNode, SVGProps } from "react";
 
 const logoUrl = "/vortexdynamics.png";
@@ -308,6 +309,10 @@ export default function VortexDynamicsWebsite() {
                 <img src={logoUrl} alt="Vortex Dynamics Microsoft Partner" className="relative mx-auto mb-6 max-h-64 w-full object-contain drop-shadow-[0_18px_28px_rgba(15,23,42,0.12)] transition duration-700 hover:scale-105" />
               </div>
 
+              <div className="mt-6 flex justify-center rounded-2xl bg-white p-4">
+                <Image src="/microsoft-partner.jpg" alt="Microsoft Partner" width={738} height={297} className="h-auto w-full max-w-[280px] object-contain" />
+              </div>
+
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {pillars.map(([title, text]) => (
                   <div key={title} className="rounded-2xl border border-white/70 bg-white/80 p-4 text-center shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-md">
@@ -470,6 +475,9 @@ export default function VortexDynamicsWebsite() {
           <div>
             <div className="mb-5 inline-flex rounded-3xl border border-white/10 bg-white p-4 shadow-xl shadow-black/20">
               <img src={logoUrl} alt="Vortex Dynamics" className="h-20 w-auto object-contain" />
+            </div>
+            <div className="mb-5 w-fit max-w-full rounded-2xl bg-white p-3">
+              <Image src="/microsoft-partner.jpg" alt="Microsoft Partner" width={738} height={297} className="h-auto w-[220px] max-w-full object-contain" />
             </div>
             <p className="leading-7 text-slate-400">
               Consultoría especializada en Microsoft Dynamics 365 Business Central, CRM, Power Platform e inteligencia artificial.
