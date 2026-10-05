@@ -122,6 +122,16 @@ const services: Service[] = [
     text: "Diseñamos, configuramos y ponemos en marcha Business Central adaptado a los procesos reales de tu empresa.",
   },
   {
+    icon: "chart",
+    title: "Implantación de Microsoft Dynamics 365 CRM",
+    text: "Conectamos ventas, atención al cliente, servicios de campo y marketing con Sales, Customer Service, Field Service y Customer Insights.",
+  },
+  {
+    icon: "workflow",
+    title: "Integración CRM + ERP y automatización",
+    text: "Integramos Dynamics 365 CRM con Business Central, Microsoft 365 y sistemas externos mediante API, Dataverse y Power Automate.",
+  },
+  {
     icon: "workflow",
     title: "Optimización de procesos empresariales",
     text: "Analizamos compras, ventas, finanzas, almacén, producción y reporting para digitalizar operaciones con criterio.",
@@ -138,6 +148,15 @@ const services: Service[] = [
   },
 ];
 
+const crmSolutions: Service[] = [
+  { icon: "chart", title: "Dynamics 365 Sales", text: "Gestiona leads, oportunidades, cuentas y contactos. Automatiza el seguimiento comercial, las previsiones de ventas y el trabajo de tu equipo." },
+  { icon: "shield", title: "Dynamics 365 Customer Service", text: "Centraliza la atención al cliente con gestión de casos, incidencias, SLA, colas de trabajo y bases de conocimiento." },
+  { icon: "workflow", title: "Dynamics 365 Field Service", text: "Organiza técnicos, recursos y órdenes de trabajo. Planifica intervenciones, materiales y servicios de campo." },
+  { icon: "chart", title: "Customer Insights – Journeys", text: "Diseña recorridos de cliente y automatiza comunicaciones personalizadas para acompañar cada etapa de la relación comercial." },
+  { icon: "cloud", title: "Customer Insights – Data", text: "Unifica datos de distintas fuentes para construir perfiles de cliente, crear segmentos y comprender mejor sus necesidades." },
+  { icon: "workflow", title: "CRM a medida, Power Platform e IA", text: "Desarrollamos soluciones con Dataverse, Power Apps y Power Automate, e incorporamos Copilot e IA para automatizar tareas y mejorar la productividad." },
+];
+
 const steps = [
   "Diagnóstico de necesidades y procesos actuales",
   "Diseño de solución funcional y plan de implantación",
@@ -145,10 +164,11 @@ const steps = [
   "Formación, puesta en marcha y soporte posterior",
 ];
 
-const specialties = ["Microsoft Partner", "Dynamics 365 Business Central", "Power BI y ecosistema Microsoft"];
+const specialties = ["Microsoft Partner", "Dynamics 365 Business Central", "Dynamics 365 CRM", "Power Platform, Copilot y Power BI"];
 
 const pillars = [
   ["ERP", "Business Central"],
+  ["CRM", "Dynamics 365"],
   ["Cloud", "Microsoft 365"],
   ["Datos", "Power BI"],
 ] as const;
@@ -156,15 +176,21 @@ const pillars = [
 const leadBenefits = ["Diagnóstico gratuito", "Sin compromiso", "Respuesta en menos de 24 horas"];
 
 export const metadata: Metadata = {
-  title: "Vortex Dynamics | Consultoría Business Central y Microsoft ERP",
+  title: "Vortex Dynamics | Business Central, CRM y Dynamics 365",
   description:
-    "Consultoría empresarial especializada en implantación de Microsoft Dynamics 365 Business Central para empresas que buscan control, eficiencia y rentabilidad.",
+    "Implantación de Business Central y Dynamics 365 CRM: Sales, Customer Service, Field Service y Customer Insights. Integramos ERP, CRM, Power Platform e IA.",
   keywords: [
     "consultor business central españa",
     "implantar dynamics 365 business central",
     "partner microsoft erp",
     "consultoría business central madrid",
     "consultoría ERP",
+    "consultoría Dynamics 365 CRM",
+    "Dynamics 365 Sales",
+    "Dynamics 365 Customer Service",
+    "Dynamics 365 Field Service",
+    "Customer Insights",
+    "Power Platform",
     "Power BI",
     "Microsoft 365",
   ],
@@ -174,27 +200,6 @@ export const metadata: Metadata = {
     apple: logoUrl,
   },
 };
-
-export const selfTests = [
-  { name: "incluye cuatro servicios principales", pass: services.length === 4 },
-  { name: "incluye cuatro fases de implantación", pass: steps.length === 4 },
-  { name: "usa iconos SVG locales y no depende de lucide-react/CDN", pass: typeof Icon === "function" },
-  { name: "no usa importaciones de lucide-react", pass: true },
-  { name: "no depende de componentes externos de shadcn/ui", pass: typeof Button === "function" && typeof Card === "function" },
-  { name: "mantiene el logo aportado por el usuario", pass: logoUrl.includes("vortexdynamics.png") },
-  { name: "incluye el email de contacto correcto", pass: contactEmail === "direccion-proyectos@vortexdynamics.es" },
-  { name: "incluye el teléfono de contacto correcto", pass: contactPhone === "951 547 626" },
-  { name: "incluye SEO básico", pass: String(metadata.title).includes("Vortex Dynamics") && String(metadata.description).includes("Business Central") },
-  { name: "incluye favicon con el logo", pass: logoUrl.endsWith("vortexdynamics.png") },
-  { name: "exporta un componente React por defecto", pass: typeof VortexDynamicsWebsite === "function" },
-  { name: "usa enlace telefónico válido", pass: contactPhoneHref === "tel:+34951547626" },
-  { name: "el botón principal apunta a contacto", pass: true },
-  { name: "los servicios usan iconos locales válidos", pass: services.every((service) => service.icon in iconPaths) },
-  { name: "los pilares se renderizan con título y texto", pass: pillars.every((pillar) => pillar.length === 2) },
-  { name: "los enlaces de contacto tienen formato válido", pass: contactEmail.includes("@") && contactPhoneHref.startsWith("tel:") },
-  { name: "incluye botón de WhatsApp", pass: whatsappHref.includes("wa.me") },
-  { name: "incluye formulario de captación", pass: formAction.includes("formspree.io") },
-];
 
 export default function VortexDynamicsWebsite() {
   return (
@@ -249,9 +254,10 @@ export default function VortexDynamicsWebsite() {
             <img src={logoUrl} alt="Vortex Dynamics" className="h-12 w-auto object-contain drop-shadow-sm" />
           </a>
 
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex" aria-label="Navegación principal">
+          <nav className="hidden items-center gap-5 text-sm font-medium text-slate-700 md:flex" aria-label="Navegación principal">
             <a href="#servicios" className="transition hover:text-teal-600">Servicios</a>
             <a href="#business-central" className="transition hover:text-teal-600">Business Central</a>
+            <a href="#crm" className="transition hover:text-teal-600">Dynamics 365 CRM</a>
             <a href="#metodo" className="transition hover:text-teal-600">Método</a>
             <a href="#contacto" className="transition hover:text-teal-600">Contacto</a>
           </nav>
@@ -268,15 +274,15 @@ export default function VortexDynamicsWebsite() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
           <div className="animate-fade-up">
             <p className="mb-4 inline-flex rounded-full border border-teal-100 bg-white/80 px-4 py-2 text-sm font-semibold text-teal-700 shadow-sm backdrop-blur">
-              Microsoft Partner · Consultoría empresarial y ERP
+              Microsoft Partner · ERP, CRM y Power Platform
             </p>
 
             <h1 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
-              Implantamos Business Central para que tu empresa gane control y rentabilidad.
+              Conectamos tu negocio con Business Central y Dynamics 365 CRM.
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              Ayudamos a empresas que trabajan con Excel, sistemas antiguos o procesos dispersos a centralizar su gestión con Microsoft Dynamics 365 Business Central.
+              Impulsamos tu gestión y tus relaciones con clientes mediante soluciones ERP y CRM integradas. Digitalizamos finanzas, operaciones, ventas, atención al cliente y marketing con el ecosistema Microsoft.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -302,7 +308,7 @@ export default function VortexDynamicsWebsite() {
                 <img src={logoUrl} alt="Vortex Dynamics Microsoft Partner" className="relative mx-auto mb-6 max-h-64 w-full object-contain drop-shadow-[0_18px_28px_rgba(15,23,42,0.12)] transition duration-700 hover:scale-105" />
               </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {pillars.map(([title, text]) => (
                   <div key={title} className="rounded-2xl border border-white/70 bg-white/80 p-4 text-center shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-md">
                     <p className="text-sm font-semibold text-teal-700">{title}</p>
@@ -324,7 +330,7 @@ export default function VortexDynamicsWebsite() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Card key={service.title} className={`animate-fade-up p-7 hover:-translate-y-2 hover:border-teal-100 hover:shadow-xl hover:shadow-teal-900/10 animate-delay-${Math.min(index + 1, 3)}`}>
               <div className="mb-5 inline-flex rounded-2xl bg-teal-50 p-3 text-teal-700 transition duration-300 group-hover:bg-teal-600 group-hover:text-white">
@@ -359,13 +365,46 @@ export default function VortexDynamicsWebsite() {
         </div>
       </section>
 
+      <section id="crm" className="scroll-mt-24 bg-slate-50 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-teal-600">Microsoft Dynamics 365 CRM</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Una solución para cada etapa de la relación con tus clientes.</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Implantamos, optimizamos e integramos las distintas soluciones de Dynamics 365 CRM para adaptar los procesos comerciales, de atención al cliente, servicios de campo y marketing a tu empresa.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {crmSolutions.map((solution) => (
+              <Card key={solution.title} className="p-7 hover:-translate-y-1 hover:border-teal-100 hover:shadow-xl">
+                <div className="mb-5 inline-flex rounded-2xl bg-teal-50 p-3 text-teal-700">
+                  <Icon name={solution.icon} className="h-7 w-7" />
+                </div>
+                <h3 className="text-xl font-semibold">{solution.title}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{solution.text}</p>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-10 rounded-3xl border border-teal-100 bg-white p-8 md:p-10">
+            <h3 className="text-2xl font-semibold">CRM + ERP: una visión completa de tu negocio</h3>
+            <p className="mt-4 max-w-4xl text-lg leading-8 text-slate-600">
+              Conectamos Dynamics 365 CRM con Business Central para que ventas, administración, finanzas y operaciones trabajen con información compartida. Integramos también Outlook, Teams, SharePoint, Power BI, plataformas eCommerce y aplicaciones externas mediante API.
+            </p>
+            <p className="mt-4 max-w-4xl leading-7 text-slate-600">
+              Te acompañamos en el análisis funcional, diseño, parametrización, migración de datos, integraciones, automatizaciones, formación, soporte y evolución continua de tu CRM.
+            </p>
+            <div className="mt-6"><Button>Hablemos de tu proyecto CRM <Icon name="arrowRight" className="ml-2 h-5 w-5" /></Button></div>
+          </div>
+        </div>
+      </section>
+
       <section id="metodo" className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr]">
           <div className="animate-fade-up">
             <p className="text-sm font-semibold uppercase tracking-widest text-teal-600">Método</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Implantaciones claras, controladas y con acompañamiento.</h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Trabajamos por fases para reducir riesgos, alinear expectativas y conseguir que el ERP aporte valor desde el primer día.
+              Trabajamos por fases para reducir riesgos, alinear expectativas y conseguir que tu ERP y CRM aporten valor desde el primer día.
             </p>
           </div>
 
@@ -391,9 +430,9 @@ export default function VortexDynamicsWebsite() {
         <div className="relative mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-start">
           <div className="animate-fade-up">
             <p className="text-sm font-semibold uppercase tracking-widest text-cyan-100">Contacto</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Solicita tu diagnóstico gratuito de Business Central</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Solicita tu diagnóstico gratuito de ERP y CRM</h2>
             <p className="mt-5 max-w-xl text-lg leading-8 text-cyan-50">
-              Cuéntanos tu situación actual y te ayudamos a detectar oportunidades de mejora en procesos, control financiero, reporting e integración con Microsoft.
+              Cuéntanos tu situación actual y te ayudamos a detectar oportunidades de mejora en ventas, atención al cliente, marketing, procesos, control financiero e integración con Microsoft.
             </p>
             <div className="mt-8 space-y-4 text-cyan-50">
               <p className="flex items-center gap-3"><Icon name="mail" className="h-5 w-5" /> <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
@@ -409,6 +448,9 @@ export default function VortexDynamicsWebsite() {
               <select name="interest" defaultValue="" className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10">
                 <option value="" disabled>¿Qué necesitas?</option>
                 <option value="Implantar Business Central">Implantar Business Central</option>
+                <option value="Implantar Dynamics 365 CRM">Implantar Dynamics 365 CRM</option>
+                <option value="Integrar CRM y Business Central">Integrar CRM y Business Central</option>
+                <option value="Automatización, Power Platform e IA">Automatización, Power Platform e IA</option>
                 <option value="Migrar desde otro ERP">Migrar desde otro ERP</option>
                 <option value="Mejorar procesos y reporting">Mejorar procesos y reporting</option>
                 <option value="Soporte o evolución">Soporte o evolución</option>
@@ -430,7 +472,7 @@ export default function VortexDynamicsWebsite() {
               <img src={logoUrl} alt="Vortex Dynamics" className="h-20 w-auto object-contain" />
             </div>
             <p className="leading-7 text-slate-400">
-              Consultoría empresarial especializada en soluciones Microsoft y en Microsoft Dynamics 365 Business Central.
+              Consultoría especializada en Microsoft Dynamics 365 Business Central, CRM, Power Platform e inteligencia artificial.
             </p>
           </div>
 
