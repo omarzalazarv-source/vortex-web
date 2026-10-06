@@ -255,11 +255,12 @@ export default function VortexDynamicsWebsite() {
             <img src={logoUrl} alt="Vortex Dynamics" className="h-12 w-auto object-contain drop-shadow-sm" />
           </a>
 
-          <nav className="hidden items-center gap-5 text-sm font-medium text-slate-700 md:flex" aria-label="Navegación principal">
+          <nav className="hidden items-center gap-4 text-sm font-medium text-slate-700 lg:flex" aria-label="Navegación principal">
             <a href="#servicios" className="transition hover:text-teal-600">Servicios</a>
             <a href="#business-central" className="transition hover:text-teal-600">Business Central</a>
             <a href="#crm" className="transition hover:text-teal-600">Dynamics 365 CRM</a>
             <a href="#metodo" className="transition hover:text-teal-600">Método</a>
+            <a href="#noticias" className="transition hover:text-teal-600">Noticias</a>
             <a href="#contacto" className="transition hover:text-teal-600">Contacto</a>
           </nav>
 
@@ -426,6 +427,23 @@ export default function VortexDynamicsWebsite() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="noticias" aria-labelledby="noticias-titulo" className="scroll-mt-24 bg-slate-50 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-semibold uppercase tracking-widest text-teal-600">Noticias y medios</p>
+          <h2 id="noticias-titulo" className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Vortex Dynamics en la prensa</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Actualidad sobre nuestra consultoría tecnológica, digitalización empresarial y soluciones Microsoft Dynamics 365.</p>
+          <article className="mt-10 rounded-3xl border border-slate-100 bg-white p-7 shadow-sm md:p-10">
+            <p className="text-sm font-medium text-teal-700">El Diario de Andalucía · <time dateTime="2026-07-22">22 de julio de 2026</time></p>
+            <h3 className="mt-4 max-w-4xl text-2xl font-semibold tracking-tight md:text-3xl">Consultoría Business Central: Vortex Dynamics en El Diario de Andalucía</h3>
+            <p className="mt-5 max-w-4xl leading-8 text-slate-600">El medio presenta nuestra forma de abordar la implantación de Microsoft Dynamics 365 Business Central: analizar los procesos de cada empresa y conectar su gestión financiera y operativa. La publicación también recoge el trabajo de integración con herramientas Microsoft, la formación de los equipos y el acompañamiento tras la puesta en marcha.</p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Button href="https://eldiariodeandalucia.com/vortex-dynamics-it-consulting/">Leer la publicación original <Icon name="arrowRight" className="ml-2 h-5 w-5" /></Button>
+              <Button variant="secondary" href="/noticias">Ver noticias de Vortex</Button>
+            </div>
+          </article>
         </div>
       </section>
 
