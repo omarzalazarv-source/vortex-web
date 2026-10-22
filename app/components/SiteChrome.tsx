@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./SiteChrome.module.css";
 
-const links = [["Servicios", "/servicios"], ["Business Central", "/business-central"], ["CRM", "/crm"], ["Noticias", "/noticias"]] as const;
+const links = [["Sobre Vortex", "/sobre-vortex"], ["Servicios", "/servicios"], ["Business Central", "/business-central"], ["CRM", "/crm"], ["Noticias", "/noticias"]] as const;
 export function SiteHeader({ contactHref = "/#contacto" }: { contactHref?: string }) {
   return <header className={styles.header}>
     <a className={styles.skip} href="#contenido">Saltar al contenido</a>

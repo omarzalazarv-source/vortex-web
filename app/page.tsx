@@ -59,7 +59,7 @@ export default function Home() {
             <p className={styles.mapCaption}>SIETE ÁREAS. UN NEGOCIO CONECTADO.</p>
           </div>
         </div>
-        <div className={styles.trustBar}><div><Image src="/microsoft-partner.jpg" alt="Microsoft Partner" width={155} height={62} className={styles.partner}/><span className={styles.trustDivider}/><p>Consultoría · Implantación · Integración · Formación y soporte</p><a href="/noticias">Vortex en los medios <span aria-hidden="true">↗</span></a></div></div>
+        <div className={styles.trustBar}><div><Image src="/microsoft-partner.jpg" alt="Microsoft Partner" width={155} height={62} className={styles.partner}/><span className={styles.trustDivider}/><p>Consultoría · Implantación · Integración · Formación y soporte</p><Link href="/sobre-vortex">Conoce Vortex <span aria-hidden="true">↗</span></Link></div></div>
       </section>
       <section className={styles.section} id="necesidades">
         <div className={styles.sectionHeading}><div><p className={styles.kicker}>EMPEZAMOS POR TU NEGOCIO</p><h2>¿Qué quieres<br />hacer mejor?</h2></div><p>La tecnología empieza a aportar valor cuando resuelve lo que de verdad necesitas.</p></div>
