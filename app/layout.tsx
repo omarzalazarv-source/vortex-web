@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StructuredData from "./components/StructuredData";
@@ -42,7 +43,15 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col"><StructuredData data={organization} />{children}<WebAnalytics /></body>
+      <body className="min-h-full flex flex-col"><StructuredData data={organization} />{children}<WebAnalytics />
+        <Script id="google-analytics-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-X45C1QPT66');
+        `}</Script>
+        <Script id="google-analytics-loader" src="https://www.googletagmanager.com/gtag/js?id=G-X45C1QPT66" strategy="afterInteractive" />
+      </body>
     </html>
   );
 }
