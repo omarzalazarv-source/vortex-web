@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 const ecosystem = [
   {name:"Business Central",label:"ERP Y OPERACIONES",href:"/business-central",mark:"BC",color:"#28d1bb",x:50,y:9},
   {name:"Dynamics 365 CRM",label:"VENTAS Y CLIENTES",href:"/crm",mark:"CX",color:"#aa99ff",x:17,y:28},
-  {name:"Microsoft 365",label:"PRODUCTIVIDAD",href:"/servicios#microsoft-365",mark:"365",color:"#74bfff",x:83,y:28},
-  {name:"Power Platform",label:"AUTOMATIZACIÓN",href:"/servicios#power-platform",mark:"PP",color:"#a3dba2",x:15,y:65},
-  {name:"Power BI & Fabric",label:"DATOS Y ANÁLISIS",href:"/servicios#datos",mark:"BI",color:"#f0cd67",x:85,y:65},
-  {name:"Microsoft Copilot",label:"INTELIGENCIA ARTIFICIAL",href:"/servicios#copilot",mark:"AI",color:"#deabff",x:32,y:91},
-  {name:"Azure & Seguridad",label:"NUBE Y PROTECCIÓN",href:"/servicios#azure-seguridad",mark:"AZ",color:"#70baff",x:69,y:91},
+  {name:"Microsoft 365",label:"PRODUCTIVIDAD",href:"/microsoft-365",mark:"365",color:"#74bfff",x:83,y:28},
+  {name:"Power Platform",label:"AUTOMATIZACIÓN",href:"/power-platform",mark:"PP",color:"#a3dba2",x:15,y:65},
+  {name:"Power BI & Fabric",label:"DATOS Y ANÁLISIS",href:"/power-bi-fabric",mark:"BI",color:"#f0cd67",x:85,y:65},
+  {name:"Microsoft Copilot",label:"INTELIGENCIA ARTIFICIAL",href:"/copilot-inteligencia-artificial",mark:"AI",color:"#deabff",x:32,y:91},
+  {name:"Azure & Seguridad",label:"NUBE Y PROTECCIÓN",href:"/azure-seguridad",mark:"AZ",color:"#70baff",x:69,y:91},
 ];
 const needs = [
   {no:"01",title:"Quiero mejorar mi gestión",text:"Conecta finanzas, compras, ventas y operaciones con información compartida.",label:"Explorar Business Central",href:"/business-central"},
@@ -30,11 +30,11 @@ const needs = [
 const services = [
   ["01","Gestión que conecta","Business Central","Finanzas, inventario y operaciones en una misma dirección.","/business-central"],
   ["02","Relaciones que crecen","Dynamics 365 CRM","Ventas, atención al cliente, servicios de campo y marketing.","/crm"],
-  ["03","Equipos que colaboran","Microsoft 365","Teams, Outlook y SharePoint conectados con tu forma de trabajar.","/servicios#microsoft-365"],
-  ["04","Procesos que avanzan","Power Platform","Aplicaciones, automatizaciones, agentes y portales a medida.","/servicios#power-platform"],
-  ["05","Datos que orientan","Power BI y Fabric","Información conectada para entender lo que ocurre y decidir.","/servicios#datos"],
-  ["06","Inteligencia que ayuda","Microsoft Copilot","Asistentes y procesos inteligentes con un propósito concreto.","/servicios#copilot"],
-  ["07","Un entorno preparado","Azure y seguridad","Nube, identidades, dispositivos y protección de la información.","/servicios#azure-seguridad"],
+  ["03","Equipos que colaboran","Microsoft 365","Teams, Outlook y SharePoint conectados con tu forma de trabajar.","/microsoft-365"],
+  ["04","Procesos que avanzan","Power Platform","Aplicaciones, automatizaciones, agentes y portales a medida.","/power-platform"],
+  ["05","Datos que orientan","Power BI y Fabric","Información conectada para entender lo que ocurre y decidir.","/power-bi-fabric"],
+  ["06","Inteligencia que ayuda","Microsoft Copilot","Asistentes y procesos inteligentes con un propósito concreto.","/copilot-inteligencia-artificial"],
+  ["07","Un entorno preparado","Azure y seguridad","Nube, identidades, dispositivos y protección de la información.","/azure-seguridad"],
 ];
 
 export default function Home() {

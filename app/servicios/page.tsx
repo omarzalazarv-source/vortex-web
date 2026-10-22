@@ -29,7 +29,7 @@ export default function ServiciosPage() {
             <p className="text-sm font-semibold text-teal-700">0{index + 1}</p><h2 className="mt-3 text-2xl font-semibold">{service.title}</h2>
             <p className="mt-3 font-medium leading-7 text-teal-800">{service.products}</p><p className="mt-4 leading-8 text-slate-600">{service.description}</p>
             <ul className="mt-5 list-disc space-y-3 pl-5 leading-7 text-slate-600">{service.tasks.map((task) => <li key={task}>{task}</li>)}</ul>
-            <Link href={service.href} className="mt-6 inline-flex font-semibold text-teal-800 underline underline-offset-4">{service.href === "#diagnostico" ? "Consultar este servicio" : "Conocer la solución"}</Link>
+            <Link href={service.href} className="mt-6 inline-flex font-semibold text-teal-800 underline underline-offset-4">Conocer la solución</Link>
           </article>)}
           <aside className="rounded-3xl bg-slate-950 p-7 text-white md:p-9"><h2 className="text-2xl font-semibold">Consultoría, integración y acompañamiento</h2><p className="mt-5 leading-8 text-slate-300">Partimos de tus procesos para definir prioridades, alcance e integraciones. Preparamos la migración, las pruebas y la formación de los equipos y acompañamos el arranque y la evolución de la solución.</p><p className="mt-4 leading-8 text-slate-300">La configuración, las licencias y los servicios necesarios se concretan en la propuesta de cada proyecto.</p></aside>
         </section>

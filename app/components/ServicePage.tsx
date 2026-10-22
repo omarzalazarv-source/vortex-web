@@ -1,10 +1,13 @@
 import { SiteHeader, SiteFooter } from "./SiteChrome";
+import Link from "next/link";
 import ContactForm from "./ContactForm";
 
 export type ServiceContent = {
   slug: string; label: string; title: string; intro: string; interest: string;
   problems: string[]; capabilities: { title: string; text: string }[];
   faqs: { question: string; answer: string }[];
+  examples?: { title: string; text: string }[];
+  related?: { title: string; href: string }[];
 };
 
 export default function ServicePage({ content }: { content: ServiceContent }) {
@@ -31,6 +34,7 @@ export default function ServicePage({ content }: { content: ServiceContent }) {
           <h2 id="alcance" className="text-3xl font-semibold">Qué podemos hacer por tu empresa</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{content.capabilities.map((item) => <article key={item.title} className="rounded-3xl border border-slate-200 p-7"><h3 className="text-xl font-semibold">{item.title}</h3><p className="mt-4 leading-7 text-slate-600">{item.text}</p></article>)}</div>
         </section>
+        {content.examples ? <section className="bg-slate-50 px-6 py-16"><div className="mx-auto max-w-7xl"><p className="text-sm font-semibold uppercase tracking-widest text-teal-700">Ejemplos de aplicación</p><h2 className="mt-3 text-3xl font-semibold">Cómo puede encajar en tu negocio</h2><p className="mt-4 max-w-3xl leading-7 text-slate-600">Escenarios ilustrativos para entender la solución; el diseño y el alcance se adaptan a cada proyecto.</p><div className="mt-8 grid gap-6 md:grid-cols-2">{content.examples.map((example) => <article key={example.title} className="rounded-3xl border border-slate-200 bg-white p-7"><h3 className="text-xl font-semibold">{example.title}</h3><p className="mt-4 leading-8 text-slate-600">{example.text}</p></article>)}</div></div></section> : null}
         <section className="bg-slate-950 px-6 py-16 text-white">
           <div className="mx-auto max-w-7xl"><h2 className="text-3xl font-semibold">Un proyecto con pasos y entregables claros</h2>
             <ol className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -44,6 +48,7 @@ export default function ServicePage({ content }: { content: ServiceContent }) {
           </div>
         </section>
         <section className="mx-auto max-w-4xl px-6 py-20"><h2 className="text-3xl font-semibold">Preguntas frecuentes</h2><div className="mt-8 divide-y divide-slate-200">{content.faqs.map((faq) => <details key={faq.question} className="py-5"><summary className="cursor-pointer text-lg font-semibold">{faq.question}</summary><p className="mt-4 leading-8 text-slate-600">{faq.answer}</p></details>)}</div></section>
+        {content.related ? <section aria-label="Soluciones relacionadas" className="mx-auto max-w-7xl px-6 pb-16"><h2 className="text-2xl font-semibold">Conecta esta solución con el resto del negocio</h2><div className="mt-6 flex flex-wrap gap-4">{content.related.map((item) => <Link key={item.href} href={item.href} className="rounded-2xl border border-teal-200 px-5 py-3 font-semibold text-teal-800 hover:bg-teal-50">{item.title} <span aria-hidden="true">↗</span></Link>)}</div></section> : null}
         <section id="diagnostico" className="scroll-mt-8 bg-teal-50 px-6 py-20">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
             <div><p className="text-sm font-semibold uppercase tracking-widest text-teal-700">El primer paso</p><h2 className="mt-3 text-3xl font-semibold">30 minutos para aclarar por dónde empezar</h2><p className="mt-5 text-lg leading-8 text-slate-600">Revisamos tu sistema actual, el proceso que más te preocupa y los equipos implicados. Al terminar, tendrás una orientación sobre el encaje de la solución y los siguientes pasos para definir el proyecto.</p><p className="mt-4 leading-7 text-slate-600">El diagnóstico inicial es gratuito. El análisis detallado, el presupuesto y el calendario se concretan después según el alcance.</p><a href="https://wa.me/34951547626" className="mt-6 inline-block font-semibold text-teal-800 underline">¿Prefieres hablar por WhatsApp?</a></div>
