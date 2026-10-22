@@ -1,0 +1,160 @@
+{
+  "name": "Vortex | Búsqueda | España | Preparación",
+  "status": "DRAFT_NOT_UPLOADED",
+  "budget": null,
+  "spend_authorized": false,
+  "network": "Google Search",
+  "search_partners": false,
+  "display_network": false,
+  "language": "es",
+  "location_proposal": "España; presencia física o habitual, pendiente de confirmar antes de activar",
+  "ad_groups": [
+    {
+      "name": "Business Central",
+      "slug": "business-central",
+      "keywords": [
+        "implantación business central",
+        "consultoría business central",
+        "consultor business central",
+        "implantar erp microsoft"
+      ],
+      "headlines": [
+        "Implantación Business Central",
+        "Consultoría Business Central",
+        "ERP Microsoft para tu empresa",
+        "Conecta finanzas y operaciones",
+        "Vortex Dynamics",
+        "Equipo 100 % sénior",
+        "11 años de experiencia",
+        "Implantación por fases",
+        "Integra ERP y CRM",
+        "Diagnóstico gratuito"
+      ],
+      "descriptions": [
+        "Implanta Business Central según tus procesos. Reserva una llamada gratuita de 30 minutos.",
+        "Conecta finanzas, compras, ventas y almacén. Define el alcance con un equipo sénior.",
+        "Empieza por tus prioridades y evoluciona por fases. Consultoría e integración Microsoft.",
+        "Analizamos tu situación para concretar servicios, licencias y siguientes pasos."
+      ],
+      "landing_page": "https://www.vortexdynamics.es/business-central",
+      "status": "PAUSED",
+      "exact_keywords": [
+        "[implantación business central]",
+        "[consultoría business central]",
+        "[consultor business central]",
+        "[implantar erp microsoft]"
+      ],
+      "phrase_keywords": [
+        "\"implantación business central\"",
+        "\"consultoría business central\"",
+        "\"consultor business central\"",
+        "\"implantar erp microsoft\""
+      ],
+      "tracking_template": "{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign=vortex_busqueda_es&utm_content={adgroupid}_{creative}&utm_term={keyword}"
+    },
+    {
+      "name": "Migración NAV",
+      "slug": "migracion-nav-business-central",
+      "keywords": [
+        "migrar nav a business central",
+        "migración nav business central",
+        "actualizar dynamics nav",
+        "consultoría migración nav"
+      ],
+      "headlines": [
+        "De NAV a Business Central",
+        "Planifica la migración de NAV",
+        "Revisa datos e integraciones",
+        "Migra con un alcance definido",
+        "Vortex Dynamics",
+        "Equipo 100 % sénior",
+        "11 años de experiencia",
+        "Pruebas antes del arranque",
+        "Formación para tu equipo",
+        "Diagnóstico gratuito"
+      ],
+      "descriptions": [
+        "Revisa datos y desarrollos de NAV antes de definir tu migración a Business Central.",
+        "Acordamos alcance, pruebas y validaciones con tu equipo. Solicita un diagnóstico gratuito.",
+        "Estudia qué mantener, adaptar o sustituir. Migración de NAV con prioridades claras.",
+        "Planifica la transición y la formación. Reserva una llamada gratuita de 30 minutos."
+      ],
+      "landing_page": "https://www.vortexdynamics.es/migracion-nav-business-central",
+      "status": "PAUSED",
+      "exact_keywords": [
+        "[migrar nav a business central]",
+        "[migración nav business central]",
+        "[actualizar dynamics nav]",
+        "[consultoría migración nav]"
+      ],
+      "phrase_keywords": [
+        "\"migrar nav a business central\"",
+        "\"migración nav business central\"",
+        "\"actualizar dynamics nav\"",
+        "\"consultoría migración nav\""
+      ],
+      "tracking_template": "{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign=vortex_busqueda_es&utm_content={adgroupid}_{creative}&utm_term={keyword}"
+    },
+    {
+      "name": "Dynamics 365 CRM",
+      "slug": "crm",
+      "keywords": [
+        "implantación dynamics 365 crm",
+        "consultoría dynamics 365 crm",
+        "consultor dynamics 365 sales",
+        "integrar crm business central"
+      ],
+      "headlines": [
+        "Implantación Dynamics 365 CRM",
+        "Consultoría CRM Microsoft",
+        "Conecta ventas y clientes",
+        "Dynamics 365 Sales",
+        "Vortex Dynamics",
+        "Equipo 100 % sénior",
+        "11 años de experiencia",
+        "Integra CRM y Business Central",
+        "Mejora tu proceso comercial",
+        "Diagnóstico gratuito"
+      ],
+      "descriptions": [
+        "Organiza oportunidades y seguimiento con Dynamics 365 CRM. Hablemos de tu proyecto.",
+        "Conecta ventas, atención al cliente y ERP. Consultoría Microsoft adaptada a tu empresa.",
+        "Empieza por las aplicaciones que necesitas y evoluciona por fases con un equipo sénior.",
+        "Define procesos, migración e integraciones. Reserva tu diagnóstico gratuito de 30 minutos."
+      ],
+      "landing_page": "https://www.vortexdynamics.es/crm",
+      "status": "PAUSED",
+      "exact_keywords": [
+        "[implantación dynamics 365 crm]",
+        "[consultoría dynamics 365 crm]",
+        "[consultor dynamics 365 sales]",
+        "[integrar crm business central]"
+      ],
+      "phrase_keywords": [
+        "\"implantación dynamics 365 crm\"",
+        "\"consultoría dynamics 365 crm\"",
+        "\"consultor dynamics 365 sales\"",
+        "\"integrar crm business central\""
+      ],
+      "tracking_template": "{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign=vortex_busqueda_es&utm_content={adgroupid}_{creative}&utm_term={keyword}"
+    }
+  ],
+  "negative_phrase_keywords": [
+    "empleo",
+    "trabajo",
+    "salario",
+    "sueldo",
+    "ofertas de empleo",
+    "curso gratis",
+    "cursos gratuitos",
+    "certificación",
+    "examen",
+    "tutorial",
+    "pdf gratis",
+    "descarga gratis",
+    "crack",
+    "pirata",
+    "qué es business central",
+    "qué es un crm"
+  ]
+}

@@ -9,7 +9,7 @@ const description = "Conoce Vortex Dynamics: consultoría funcional de Business 
 export const metadata: Metadata = {
   title, description,
   alternates: { canonical: "https://www.vortexdynamics.es/sobre-vortex" },
-  openGraph: { title, description, url: "https://www.vortexdynamics.es/sobre-vortex", type: "website", locale: "es_ES" },
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/sobre-vortex", type: "website", locale: "es_ES" },
 };
 
 export default function SobreVortexPage() {

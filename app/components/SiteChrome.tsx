@@ -18,6 +18,6 @@ export function SiteFooter() {
   return <footer className={styles.footer}><div className={styles.footerGrid}>
     <div><Link href="/" className={styles.brand}><Image src="/icon.png" alt="" width={48} height={48} /><span>VORTEX DYNAMICS<small>IT CONSULTING</small></span></Link><p>Conectamos tecnología, procesos y personas para que tu negocio avance.</p></div>
     <nav aria-label="Servicios y soluciones"><strong>Explora Vortex</strong>{links.map(([label,href])=><Link href={href} key={href}>{label}</Link>)}</nav>
-    <div className={styles.contact}><strong>Empecemos a conectar</strong><Link href="/reservar">Reservar diagnóstico gratuito ↗</Link><a href="mailto:direccion-proyectos@vortexdynamics.es">direccion-proyectos@vortexdynamics.es</a><a href="tel:+34951547626">951 547 626</a><a href="https://wa.me/34951547626">Hablar por WhatsApp ↗</a></div>
+    <div className={styles.contact}><strong>Empecemos a conectar</strong><Link href="/reservar">Reservar diagnóstico gratuito ↗</Link><Link href="/migracion-nav-business-central">Migrar de NAV a Business Central</Link><a href="mailto:direccion-proyectos@vortexdynamics.es">direccion-proyectos@vortexdynamics.es</a><a href="tel:+34951547626">951 547 626</a><a href="https://wa.me/34951547626">Hablar por WhatsApp ↗</a></div>
     </div><div className={styles.bottom}>© 2026 Vortex Dynamics IT Consulting <span>Microsoft · ERP · CRM · Cloud · IA</span></div></footer>;
 }

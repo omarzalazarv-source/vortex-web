@@ -3,11 +3,11 @@ import ServicePage, { type ServiceContent } from "../components/ServicePage";
 
 const title = "Consultoría Microsoft Copilot e IA empresarial | Vortex Dynamics";
 const description = "Identifica casos de uso de Microsoft Copilot y crea agentes con Copilot Studio. Conecta información autorizada y automatiza tareas con Vortex Dynamics.";
-export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/copilot-inteligencia-artificial" }, openGraph: { title, description, url: "https://www.vortexdynamics.es/copilot-inteligencia-artificial", type: "website", locale: "es_ES" } };
+export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/copilot-inteligencia-artificial" }, openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/copilot-inteligencia-artificial", type: "website", locale: "es_ES" } };
 
 const content: ServiceContent = {
   "label": "Microsoft Copilot · Copilot Studio · Inteligencia artificial",
-  "title": "Inteligencia artificial con una tarea concreta que resolver.",
+  "title": "Consultoría Microsoft Copilot e inteligencia artificial.",
   "intro": "Te ayudamos a identificar dónde puede aportar valor la IA y cómo incorporarla al trabajo del equipo. Evaluamos los datos, los permisos y las herramientas antes de diseñar asistentes o procesos con Microsoft Copilot y Copilot Studio.",
   "interest": "Microsoft Copilot e IA",
   "problems": [

@@ -9,7 +9,7 @@ const description = "Consultoría, implantación e integración de Business Cent
 export const metadata: Metadata = {
   title, description,
   alternates: { canonical: "https://www.vortexdynamics.es/servicios" },
-  openGraph: { title, description, url: "https://www.vortexdynamics.es/servicios", type: "website", locale: "es_ES" },
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/servicios", type: "website", locale: "es_ES" },
 };
 
 export default function ServiciosPage() {

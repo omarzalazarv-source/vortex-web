@@ -3,11 +3,11 @@ import ServicePage, { type ServiceContent } from "../components/ServicePage";
 
 const title = "Consultoría Microsoft 365 y SharePoint | Vortex Dynamics";
 const description = "Organiza colaboración y documentación con Microsoft 365, Teams, Outlook y SharePoint. Integra herramientas y procesos con Vortex Dynamics.";
-export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/microsoft-365" }, openGraph: { title, description, url: "https://www.vortexdynamics.es/microsoft-365", type: "website", locale: "es_ES" } };
+export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/microsoft-365" }, openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/microsoft-365", type: "website", locale: "es_ES" } };
 
 const content: ServiceContent = {
   "label": "Microsoft 365 · Productividad y colaboración",
-  "title": "Tu equipo conectado. La información en su sitio.",
+  "title": "Consultoría Microsoft 365, Teams y SharePoint.",
   "intro": "Ayudamos a organizar los espacios de colaboración, los documentos y las herramientas de trabajo de Microsoft 365. Definimos una forma de compartir información que encaje con los equipos y sus procesos.",
   "interest": "Microsoft 365 y SharePoint",
   "problems": [

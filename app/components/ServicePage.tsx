@@ -1,5 +1,6 @@
 import { SiteHeader, SiteFooter } from "./SiteChrome";
 import Link from "next/link";
+import StructuredData from "./StructuredData";
 import ContactForm from "./ContactForm";
 
 export type ServiceContent = {
@@ -11,17 +12,28 @@ export type ServiceContent = {
 };
 
 export default function ServicePage({ content }: { content: ServiceContent }) {
+  const url = `https://www.vortexdynamics.es/${content.slug}`;
+  const breadcrumbs = [
+    { name: "Inicio", item: "https://www.vortexdynamics.es/" },
+    { name: "Servicios Microsoft", item: "https://www.vortexdynamics.es/servicios" },
+    { name: content.label, item: url },
+  ];
   return (
     <div className="min-h-screen bg-white text-slate-950">
       <SiteHeader contactHref="#diagnostico" />
       <main id="contenido">
+        <StructuredData data={{ "@context": "https://schema.org", "@graph": [
+          { "@type": "Service", "@id": `${url}#service`, name: content.label, serviceType: content.label, description: content.intro, url, provider: { "@id": "https://www.vortexdynamics.es/#organization" } },
+          { "@type": "BreadcrumbList", itemListElement: breadcrumbs.map((item,i)=>({ "@type": "ListItem", position: i+1, ...item })) },
+        ] }} />
+        <nav aria-label="Ruta de navegación" className="mx-auto flex max-w-7xl flex-wrap gap-2 px-6 py-5 text-sm text-slate-600"><Link href="/" className="underline underline-offset-4">Inicio</Link><span aria-hidden="true">/</span><Link href="/servicios" className="underline underline-offset-4">Servicios Microsoft</Link><span aria-hidden="true">/</span><span aria-current="page">{content.label}</span></nav>
         <section className="bg-gradient-to-br from-teal-50 via-white to-cyan-50 px-6 py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-teal-700">{content.label}</p>
               <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">{content.title}</h1>
               <p className="mt-6 text-lg leading-8 text-slate-600">{content.intro}</p>
-              <a href="#diagnostico" className="mt-8 inline-flex rounded-2xl bg-teal-700 px-6 py-4 font-semibold text-white hover:bg-teal-800">Reserva tu diagnóstico gratuito</a>
+              <Link href="/reservar" className="mt-8 inline-flex rounded-2xl bg-teal-700 px-6 py-4 font-semibold text-white hover:bg-teal-800">Reserva tu diagnóstico gratuito</Link>
               <p className="mt-4 text-sm text-slate-600">30 minutos · Sin compromiso · Consultoría adaptada a tu empresa</p>
             </div>
             <aside className="rounded-3xl border border-teal-100 bg-white p-8 shadow-sm">

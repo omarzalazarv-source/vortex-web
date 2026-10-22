@@ -7,7 +7,7 @@ const description = "Reserva una videollamada gratuita de 30 minutos para revisa
 export const metadata: Metadata = {
   title, description,
   alternates: { canonical: "https://www.vortexdynamics.es/reservar" },
-  openGraph: { title, description, url: "https://www.vortexdynamics.es/reservar", type: "website", locale: "es_ES" },
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/reservar", type: "website", locale: "es_ES" },
 };
 
 export default function ReservarPage() {

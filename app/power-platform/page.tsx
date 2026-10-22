@@ -3,11 +3,11 @@ import ServicePage, { type ServiceContent } from "../components/ServicePage";
 
 const title = "Consultoría Power Platform y automatización | Vortex Dynamics";
 const description = "Aplicaciones con Power Apps, flujos con Power Automate, agentes con Copilot Studio y portales con Power Pages. Conecta tus procesos con Vortex Dynamics.";
-export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/power-platform" }, openGraph: { title, description, url: "https://www.vortexdynamics.es/power-platform", type: "website", locale: "es_ES" } };
+export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/power-platform" }, openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/power-platform", type: "website", locale: "es_ES" } };
 
 const content: ServiceContent = {
   "label": "Power Platform · Aplicaciones y automatización",
-  "title": "Menos tareas repetidas. Más tiempo para avanzar.",
+  "title": "Consultoría Power Platform: aplicaciones y automatización.",
   "intro": "Diseñamos aplicaciones y automatizaciones que conectan personas, datos y herramientas. Partimos de un proceso concreto para construir una solución con Power Platform que tu equipo pueda utilizar y mantener.",
   "interest": "Power Platform y automatización",
   "problems": [

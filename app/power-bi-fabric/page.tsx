@@ -3,11 +3,11 @@ import ServicePage, { type ServiceContent } from "../components/ServicePage";
 
 const title = "Consultoría Power BI y Microsoft Fabric | Vortex Dynamics";
 const description = "Integra datos de ERP y CRM y crea cuadros de mando con Power BI y Microsoft Fabric. Consultoría, modelos de datos e indicadores de negocio.";
-export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/power-bi-fabric" }, openGraph: { title, description, url: "https://www.vortexdynamics.es/power-bi-fabric", type: "website", locale: "es_ES" } };
+export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/power-bi-fabric" }, openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/power-bi-fabric", type: "website", locale: "es_ES" } };
 
 const content: ServiceContent = {
   "label": "Power BI · Microsoft Fabric · Datos y análisis",
-  "title": "De los datos dispersos a decisiones con contexto.",
+  "title": "Consultoría Power BI y Microsoft Fabric para tu negocio.",
   "intro": "Conectamos las fuentes de información de tu empresa y diseñamos indicadores que tu equipo entienda. Con Power BI y Microsoft Fabric planteamos una base de análisis adaptada a tus procesos y prioridades.",
   "interest": "Power BI y Microsoft Fabric",
   "problems": [

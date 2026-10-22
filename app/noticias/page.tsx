@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Noticias y prensa | Vortex Dynamics IT Consulting",
   description: "Noticias de Vortex Dynamics: nuestra consultoría de Microsoft Dynamics 365 Business Central en El Diario de Andalucía.",
   alternates: { canonical: "https://www.vortexdynamics.es/noticias" },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }],
     title: "Noticias y prensa | Vortex Dynamics",
     description: "Vortex Dynamics en los medios: consultoría e implantación de Business Central para la digitalización empresarial.",
     url: "https://www.vortexdynamics.es/noticias",

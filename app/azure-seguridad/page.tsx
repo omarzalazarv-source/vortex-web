@@ -3,11 +3,11 @@ import ServicePage, { type ServiceContent } from "../components/ServicePage";
 
 const title = "Consultoría Azure y seguridad Microsoft | Vortex Dynamics";
 const description = "Consultoría cloud y seguridad Microsoft: Azure, Entra, Defender, Intune y Purview. Organiza identidades, dispositivos y protección de la información.";
-export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/azure-seguridad" }, openGraph: { title, description, url: "https://www.vortexdynamics.es/azure-seguridad", type: "website", locale: "es_ES" } };
+export const metadata: Metadata = { title, description, alternates: { canonical: "https://www.vortexdynamics.es/azure-seguridad" }, openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/azure-seguridad", type: "website", locale: "es_ES" } };
 
 const content: ServiceContent = {
   "label": "Microsoft Azure · Entra · Defender · Intune · Purview",
-  "title": "Una base cloud preparada para trabajar y evolucionar.",
+  "title": "Consultoría Azure y seguridad del ecosistema Microsoft.",
   "intro": "Analizamos el entorno tecnológico y planificamos los servicios cloud, las identidades y la protección de la información. Definimos un alcance adaptado a tus aplicaciones, dispositivos y equipos dentro del ecosistema Microsoft.",
   "interest": "Azure y seguridad Microsoft",
   "problems": [

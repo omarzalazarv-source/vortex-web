@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Vortex Dynamics | Consultoría Microsoft, Business Central y CRM",
   description: "Conecta tu negocio con Business Central, Dynamics 365 CRM, Microsoft 365, Power Platform, Power BI, Copilot y Azure. Consultoría, integración y soporte.",
   alternates: { canonical: "https://www.vortexdynamics.es/" },
-  openGraph: { title: "Vortex Dynamics · Toda tu empresa conectada", description: "Consultoría Microsoft para conectar tus procesos, tus equipos y tus datos.", url: "https://www.vortexdynamics.es/", type: "website", locale: "es_ES" },
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title: "Vortex Dynamics · Toda tu empresa conectada", description: "Consultoría Microsoft para conectar tus procesos, tus equipos y tus datos.", url: "https://www.vortexdynamics.es/", type: "website", locale: "es_ES" },
 };
 
 const ecosystem = [

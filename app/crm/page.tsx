@@ -6,11 +6,11 @@ const description = "Implantamos Dynamics 365 CRM: Sales, Customer Service, Fiel
 export const metadata: Metadata = {
   title, description,
   alternates: { canonical: "https://www.vortexdynamics.es/crm" },
-  openGraph: { title, description, url: "https://www.vortexdynamics.es/crm", type: "website", locale: "es_ES" },
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vortex Dynamics · Consultoría Microsoft" }], title, description, url: "https://www.vortexdynamics.es/crm", type: "website", locale: "es_ES" },
 };
 const content: ServiceContent = {
   slug: "crm", label: "Microsoft Dynamics 365 CRM",
-  title: "Da seguimiento a cada oportunidad y conecta toda la relación con tus clientes.",
+  title: "Implantación de Dynamics 365 CRM para ventas y atención al cliente.",
   intro: "Implantamos soluciones CRM de Microsoft para organizar ventas, atención al cliente, servicios de campo y marketing. Conectamos los procesos comerciales con Business Central y las herramientas de tu equipo.",
   interest: "Implantar Dynamics 365 CRM",
   problems: ["Las oportunidades se reparten entre hojas de cálculo, correos y agendas personales.", "No tienes una visión compartida de cada cliente y sus conversaciones.", "El equipo comercial repite datos al pasar una venta a administración."],
