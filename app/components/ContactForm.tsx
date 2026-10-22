@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef, useState, type FormEvent } from "react";
 import { trackContactEvent } from "./analytics-events";
 
@@ -48,6 +49,8 @@ export default function ContactForm({ interest = "", source = "/" }: { interest?
       <input type="hidden" name="source_page" value={source} readOnly />
       {["utm_source", "utm_medium", "utm_campaign", "referrer_domain"].map((name) => <input key={name} type="hidden" name={name} defaultValue="" />)}
       <div className="grid gap-4">
+        <div className="mb-2 rounded-2xl border border-teal-200 bg-teal-50 p-5"><p className="font-semibold">¿Prefieres elegir día y hora?</p><p className="mt-2 text-sm leading-6 text-slate-600">Reserva directamente una videollamada gratuita de 30 minutos.</p><Link href="/reservar" className="mt-3 inline-block font-semibold text-teal-800 underline underline-offset-4">Ver horarios y reservar ↗</Link></div>
+        <p className="text-sm font-semibold text-slate-600">O cuéntanos tu proyecto y te contactaremos</p>
         <label className="text-sm font-medium">Nombre y empresa<input autoComplete="organization" type="text" name="name" required className={`mt-2 ${fieldClass}`} /></label>
         <label className="text-sm font-medium">Email profesional<input autoComplete="email" type="email" name="email" required className={`mt-2 ${fieldClass}`} /></label>
         <label className="text-sm font-medium">Teléfono (opcional)<input autoComplete="tel" type="tel" name="phone" className={`mt-2 ${fieldClass}`} /></label>

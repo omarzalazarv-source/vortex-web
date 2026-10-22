@@ -47,7 +47,7 @@ export default function Home() {
             <p className={styles.eyebrow}><span /> CONECTAMOS EL ECOSISTEMA MICROSOFT</p>
             <h1>Toda tu empresa<br />conectada.<br /><em>Todo tu potencial<br />en marcha.</em></h1>
             <p className={styles.intro}>Unimos tus procesos, tus equipos y tus datos con soluciones Microsoft. De la gestión diaria a tu próximo paso.</p>
-            <div className={styles.actions}><a className={styles.primary} href="#contacto">Hablemos de tu proyecto <span aria-hidden="true">↗</span></a><Link className={styles.textLink} href="/servicios">Explorar soluciones <span aria-hidden="true">→</span></Link></div>
+            <div className={styles.actions}><a className={styles.primary} href="/reservar">Reservar diagnóstico gratuito <span aria-hidden="true">↗</span></a><Link className={styles.textLink} href="/servicios">Explorar soluciones <span aria-hidden="true">→</span></Link></div>
             <p className={styles.heroNote}>Diagnóstico gratuito de 30 minutos <span>·</span> Sin compromiso</p>
           </div>
           <div className={styles.mapWrap}>

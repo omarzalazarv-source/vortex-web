@@ -19,8 +19,9 @@ export default function WebAnalytics() {
       const anchor = event.target.closest("a");
       if (!anchor) return;
       const href = anchor.getAttribute("href") || "";
-      let channel: "whatsapp" | "phone" | "email" | undefined;
-      if (href.startsWith("https://wa.me/")) channel = "whatsapp";
+      let channel: "whatsapp" | "phone" | "email" | "booking" | undefined;
+      if (href === "https://calendar.app.google/3Eoja5Ur5Paewsb8A") channel = "booking";
+      else if (href.startsWith("https://wa.me/")) channel = "whatsapp";
       else if (href.startsWith("tel:")) channel = "phone";
       else if (href.startsWith("mailto:")) channel = "email";
       if (channel) trackContactEvent("contact_click", channel);
