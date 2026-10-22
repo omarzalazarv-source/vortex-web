@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Noticias y prensa | Vortex Dynamics IT Consulting",
   description: "Noticias de Vortex Dynamics: nuestra consultoría de Microsoft Dynamics 365 Business Central en El Diario de Andalucía.",
-  alternates: { canonical: "https://vortexdynamics.es/noticias" },
+  alternates: { canonical: "https://www.vortexdynamics.es/noticias" },
   openGraph: {
     title: "Noticias y prensa | Vortex Dynamics",
     description: "Vortex Dynamics en los medios: consultoría e implantación de Business Central para la digitalización empresarial.",
-    url: "https://vortexdynamics.es/noticias",
+    url: "https://www.vortexdynamics.es/noticias",
     type: "website",
     locale: "es_ES",
   },
@@ -36,8 +36,8 @@ export default function NoticiasPage() {
           <h2 className="text-2xl font-semibold">Conoce nuestras soluciones ERP y CRM</h2>
           <p className="mt-4 leading-8 text-slate-300">Descubre los servicios de Vortex Dynamics y cuéntanos qué procesos necesitas mejorar en tu empresa.</p>
           <div className="mt-6 flex flex-wrap gap-6 font-semibold text-cyan-300">
-            <Link href="/#business-central" className="hover:underline">Business Central</Link>
-            <Link href="/#crm" className="hover:underline">Dynamics 365 CRM</Link>
+            <Link href="/business-central" className="hover:underline">Business Central</Link>
+            <Link href="/crm" className="hover:underline">Dynamics 365 CRM</Link>
             <Link href="/#contacto" className="hover:underline">Solicitar diagnóstico</Link>
           </div>
         </aside>

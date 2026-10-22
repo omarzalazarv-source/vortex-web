@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ContactForm from "./components/ContactForm";
 import type { ReactNode, SVGProps } from "react";
 
 const logoUrl = "/vortexdynamics.png";
@@ -7,7 +8,6 @@ const contactEmail = "direccion-proyectos@vortexdynamics.es";
 const contactPhone = "951 547 626";
 const contactPhoneHref = "tel:+34951547626";
 const whatsappHref = "https://wa.me/34951547626";
-const formAction = "https://formspree.io/f/xdabgonv";
 
 type IconName = "check" | "arrowRight" | "chart" | "cloud" | "shield" | "workflow" | "mail" | "phone" | "pin";
 
@@ -174,10 +174,11 @@ const pillars = [
   ["Datos", "Power BI"],
 ] as const;
 
-const leadBenefits = ["Diagnóstico gratuito", "Sin compromiso", "Respuesta en menos de 24 horas"];
+const leadBenefits = ["Diagnóstico de 30 minutos", "Sin compromiso", "Respuesta en 24 h laborables"];
 
 export const metadata: Metadata = {
   title: "Vortex Dynamics | Business Central, CRM y Dynamics 365",
+  alternates: { canonical: "https://www.vortexdynamics.es/" },
   description:
     "Implantación de Business Central y Dynamics 365 CRM: Sales, Customer Service, Field Service y Customer Insights. Integramos ERP, CRM, Power Platform e IA.",
   keywords: [
@@ -257,8 +258,8 @@ export default function VortexDynamicsWebsite() {
 
           <nav className="hidden items-center gap-4 text-sm font-medium text-slate-700 lg:flex" aria-label="Navegación principal">
             <a href="#servicios" className="transition hover:text-teal-600">Servicios</a>
-            <a href="#business-central" className="transition hover:text-teal-600">Business Central</a>
-            <a href="#crm" className="transition hover:text-teal-600">Dynamics 365 CRM</a>
+            <a href="/business-central" className="transition hover:text-teal-600">Business Central</a>
+            <a href="/crm" className="transition hover:text-teal-600">Dynamics 365 CRM</a>
             <a href="#metodo" className="transition hover:text-teal-600">Método</a>
             <a href="#noticias" className="transition hover:text-teal-600">Noticias</a>
             <a href="#contacto" className="transition hover:text-teal-600">Contacto</a>
@@ -266,6 +267,7 @@ export default function VortexDynamicsWebsite() {
 
           <Button>Solicitar diagnóstico</Button>
         </div>
+        <nav aria-label="Servicios en móvil" className="flex flex-wrap justify-center gap-x-5 gap-y-2 border-t border-slate-100 px-4 py-3 text-sm font-medium lg:hidden"><a href="/business-central">Business Central</a><a href="/crm">CRM</a><a href="/noticias">Noticias</a><a href="#contacto">Contacto</a></nav>
       </header>
 
       <section id="inicio" className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_#ecfeff,_transparent_34%),linear-gradient(135deg,#f8fafc_0%,#ffffff_48%,#ecfeff_100%)]">
@@ -280,11 +282,11 @@ export default function VortexDynamicsWebsite() {
             </p>
 
             <h1 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
-              Conectamos tu negocio con Business Central y Dynamics 365 CRM.
+              Conecta ventas, finanzas y operaciones con Microsoft Dynamics 365.
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              Impulsamos tu gestión y tus relaciones con clientes mediante soluciones ERP y CRM integradas. Digitalizamos finanzas, operaciones, ventas, atención al cliente y marketing con el ecosistema Microsoft.
+              ¿Datos repartidos en Excel, oportunidades sin seguimiento o tareas duplicadas? Implantamos Business Central y Dynamics 365 CRM para conectar la gestión de tu empresa y acompañar a tu equipo en el cambio.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -294,6 +296,7 @@ export default function VortexDynamicsWebsite() {
               <Button variant="secondary" href={whatsappHref}>Hablar por WhatsApp</Button>
             </div>
 
+            <div className="mt-6 flex flex-wrap gap-5 text-sm font-semibold text-teal-800"><a href="/business-central" className="underline underline-offset-4">Conocer Business Central</a><a href="/crm" className="underline underline-offset-4">Conocer Dynamics 365 CRM</a></div>
             <div className="mt-6 grid gap-3 text-sm font-medium text-slate-700 sm:grid-cols-3">
               {leadBenefits.map((benefit, index) => (
                 <p key={benefit} className={`animate-fade-up flex items-center gap-2 animate-delay-${Math.min(index + 1, 3)}`}>
@@ -367,6 +370,7 @@ export default function VortexDynamicsWebsite() {
             <p>
               En Vortex Dynamics adaptamos la solución a tu forma de trabajar, evitando implantaciones rígidas y priorizando la adopción, el control y los resultados medibles.
             </p>
+            <div className="pt-3"><Button href="/business-central" variant="light">Explorar los servicios de Business Central</Button></div>
           </div>
         </div>
       </section>
@@ -399,7 +403,7 @@ export default function VortexDynamicsWebsite() {
             <p className="mt-4 max-w-4xl leading-7 text-slate-600">
               Te acompañamos en el análisis funcional, diseño, parametrización, migración de datos, integraciones, automatizaciones, formación, soporte y evolución continua de tu CRM.
             </p>
-            <div className="mt-6"><Button>Hablemos de tu proyecto CRM <Icon name="arrowRight" className="ml-2 h-5 w-5" /></Button></div>
+            <div className="mt-6"><Button href="/crm">Explora nuestros servicios CRM <Icon name="arrowRight" className="ml-2 h-5 w-5" /></Button></div>
           </div>
         </div>
       </section>
@@ -422,7 +426,7 @@ export default function VortexDynamicsWebsite() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">{step}</h3>
-                  <p className="mt-1 text-slate-600">Fase orientada a avanzar con visibilidad, documentación y decisiones compartidas.</p>
+                  <p className="mt-1 text-slate-600">{["Requisitos priorizados y mapa de los procesos que necesitas mejorar.", "Propuesta funcional con alcance, fases y responsabilidades acordadas.", "Configuración e integraciones probadas con datos y escenarios de tu empresa.", "Formación por perfiles, apoyo al arranque y seguimiento de mejoras."][index]}</p>
                 </div>
               </div>
             ))}
@@ -453,9 +457,9 @@ export default function VortexDynamicsWebsite() {
         <div className="relative mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-start">
           <div className="animate-fade-up">
             <p className="text-sm font-semibold uppercase tracking-widest text-cyan-100">Contacto</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Solicita tu diagnóstico gratuito de ERP y CRM</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">Tu diagnóstico gratuito: 30 minutos para definir el siguiente paso</h2>
             <p className="mt-5 max-w-xl text-lg leading-8 text-cyan-50">
-              Cuéntanos tu situación actual y te ayudamos a detectar oportunidades de mejora en ventas, atención al cliente, marketing, procesos, control financiero e integración con Microsoft.
+              Revisamos contigo el sistema que utilizas, el proceso que necesitas mejorar y los equipos implicados. Te orientamos sobre qué solución encaja y qué pasos seguir. Sin compromiso; el análisis detallado y la propuesta se concretan después según el alcance.
             </p>
             <div className="mt-8 space-y-4 text-cyan-50">
               <p className="flex items-center gap-3"><Icon name="mail" className="h-5 w-5" /> <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
@@ -463,28 +467,7 @@ export default function VortexDynamicsWebsite() {
             </div>
           </div>
 
-          <form action={formAction} method="POST" className="animate-fade-right rounded-3xl bg-white/95 p-6 text-slate-950 shadow-2xl shadow-slate-950/20 backdrop-blur md:p-8">
-            <div className="grid gap-4">
-              <input type="text" name="name" placeholder="Nombre y empresa" required className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10" />
-              <input type="email" name="email" placeholder="Email profesional" required className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10" />
-              <input type="tel" name="phone" placeholder="Teléfono" className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10" />
-              <select name="interest" defaultValue="" className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10">
-                <option value="" disabled>¿Qué necesitas?</option>
-                <option value="Implantar Business Central">Implantar Business Central</option>
-                <option value="Implantar Dynamics 365 CRM">Implantar Dynamics 365 CRM</option>
-                <option value="Integrar CRM y Business Central">Integrar CRM y Business Central</option>
-                <option value="Automatización, Power Platform e IA">Automatización, Power Platform e IA</option>
-                <option value="Migrar desde otro ERP">Migrar desde otro ERP</option>
-                <option value="Mejorar procesos y reporting">Mejorar procesos y reporting</option>
-                <option value="Soporte o evolución">Soporte o evolución</option>
-              </select>
-              <textarea name="message" placeholder="Cuéntanos brevemente tu situación actual" required rows={5} className="w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10" />
-              <button type="submit" className="rounded-2xl bg-teal-600 px-6 py-3 font-semibold text-white shadow-lg shadow-teal-600/25 transition duration-300 hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30">
-                Solicitar diagnóstico gratuito
-              </button>
-              <p className="text-sm text-slate-500">Te responderemos en menos de 24 horas laborables.</p>
-            </div>
-          </form>
+          <ContactForm />
         </div>
       </section>
 
