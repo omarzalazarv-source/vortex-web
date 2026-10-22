@@ -15,6 +15,7 @@ export default function ServicePage({ content }: { content: ServiceContent }) {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
           <Link href="/" aria-label="Vortex Dynamics, inicio"><Image src="/vortexdynamics.png" alt="Vortex Dynamics" width={180} height={90} className="h-12 w-auto object-contain" /></Link>
           <nav aria-label="Navegación principal" className="flex flex-wrap gap-4 text-sm font-semibold">
+            <Link href="/servicios">Servicios</Link>
             <Link href="/business-central" aria-current={content.slug === "business-central" ? "page" : undefined}>Business Central</Link>
             <Link href="/crm" aria-current={content.slug === "crm" ? "page" : undefined}>CRM</Link>
             <Link href="/noticias">Noticias</Link><a href="#diagnostico" className="text-teal-700">Solicitar diagnóstico</a>

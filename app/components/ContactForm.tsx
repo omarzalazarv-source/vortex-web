@@ -54,7 +54,7 @@ export default function ContactForm({ interest = "", source = "/" }: { interest?
         <label className="text-sm font-medium">¿Qué necesitas?
           <select name="interest" defaultValue={interest} required className={`mt-2 ${fieldClass}`}>
             <option value="" disabled>Selecciona un servicio</option>
-            {["Implantar Business Central", "Implantar Dynamics 365 CRM", "Integrar CRM y Business Central", "Migrar desde otro ERP", "Automatización, Power Platform e IA", "Mejorar procesos y reporting", "Soporte o evolución"].map((value) => <option key={value} value={value}>{value}</option>)}
+            {["Implantar Business Central", "Implantar Dynamics 365 CRM", "Integrar CRM y Business Central", "Migrar desde otro ERP", "Automatización, Power Platform e IA", "Mejorar procesos y reporting", "Microsoft 365 y SharePoint", "Power Platform y automatización", "Power BI y Microsoft Fabric", "Microsoft Copilot e IA", "Azure y seguridad Microsoft", "Soporte o evolución"].map((value) => <option key={value} value={value}>{value}</option>)}
           </select>
         </label>
         <label className="text-sm font-medium">¿Qué te gustaría mejorar?<textarea name="message" required rows={4} placeholder="Qué sistema utilizas y qué proceso te gustaría resolver" className={`mt-2 ${fieldClass}`} /></label>

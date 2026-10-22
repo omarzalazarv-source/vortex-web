@@ -114,19 +114,27 @@ type Service = {
   icon: IconName;
   title: string;
   text: string;
+  href?: string;
 };
 
 const services: Service[] = [
   {
     icon: "cloud",
     title: "Implantación de Microsoft Dynamics 365 Business Central",
+    href: "/business-central",
     text: "Diseñamos, configuramos y ponemos en marcha Business Central adaptado a los procesos reales de tu empresa.",
   },
   {
     icon: "chart",
     title: "Implantación de Microsoft Dynamics 365 CRM",
+    href: "/crm",
     text: "Conectamos ventas, atención al cliente, servicios de campo y marketing con Sales, Customer Service, Field Service y Customer Insights.",
   },
+  { icon: "cloud", title: "Microsoft 365 y colaboración", text: "Conectamos Teams, Outlook, SharePoint, Excel, Word y PowerPoint con los procesos y la documentación de tu empresa.", href: "/servicios#microsoft-365" },
+  { icon: "workflow", title: "Power Platform y automatización", text: "Desarrollamos aplicaciones, flujos, agentes y portales con Power Apps, Power Automate, Copilot Studio, Power Pages y Dataverse.", href: "/servicios#power-platform" },
+  { icon: "chart", title: "Power BI y Microsoft Fabric", text: "Integramos y preparamos datos para construir informes, indicadores y cuadros de mando financieros, comerciales y operativos.", href: "/servicios#datos" },
+  { icon: "workflow", title: "Microsoft Copilot e inteligencia artificial", text: "Implantamos asistentes y procesos inteligentes, conectados a información autorizada y adaptados a las necesidades de tu equipo.", href: "/servicios#copilot" },
+  { icon: "shield", title: "Azure, nube y seguridad", text: "Te ayudamos con servicios cloud, identidades, dispositivos y protección de la información mediante Azure, Entra, Defender, Intune y Purview.", href: "/servicios#azure-seguridad" },
   {
     icon: "workflow",
     title: "Integración CRM + ERP y automatización",
@@ -165,7 +173,7 @@ const steps = [
   "Formación, puesta en marcha y soporte posterior",
 ];
 
-const specialties = ["Microsoft Partner", "Dynamics 365 Business Central", "Dynamics 365 CRM", "Power Platform, Copilot y Power BI"];
+const specialties = ["Microsoft Partner", "Dynamics 365 Business Central", "Dynamics 365 CRM", "Microsoft 365 y Power Platform", "Power BI, Fabric y Copilot", "Azure y seguridad Microsoft"];
 
 const pillars = [
   ["ERP", "Business Central"],
@@ -180,7 +188,7 @@ export const metadata: Metadata = {
   title: "Vortex Dynamics | Business Central, CRM y Dynamics 365",
   alternates: { canonical: "https://www.vortexdynamics.es/" },
   description:
-    "Implantación de Business Central y Dynamics 365 CRM: Sales, Customer Service, Field Service y Customer Insights. Integramos ERP, CRM, Power Platform e IA.",
+    "Consultoría Microsoft: Business Central, CRM, Microsoft 365, Power Platform, Power BI, Fabric, Copilot, Azure y seguridad. Implantación, integración y soporte.",
   keywords: [
     "consultor business central españa",
     "implantar dynamics 365 business central",
@@ -257,7 +265,7 @@ export default function VortexDynamicsWebsite() {
           </a>
 
           <nav className="hidden items-center gap-4 text-sm font-medium text-slate-700 lg:flex" aria-label="Navegación principal">
-            <a href="#servicios" className="transition hover:text-teal-600">Servicios</a>
+            <a href="/servicios" className="transition hover:text-teal-600">Servicios</a>
             <a href="/business-central" className="transition hover:text-teal-600">Business Central</a>
             <a href="/crm" className="transition hover:text-teal-600">Dynamics 365 CRM</a>
             <a href="#metodo" className="transition hover:text-teal-600">Método</a>
@@ -267,7 +275,7 @@ export default function VortexDynamicsWebsite() {
 
           <Button>Solicitar diagnóstico</Button>
         </div>
-        <nav aria-label="Servicios en móvil" className="flex flex-wrap justify-center gap-x-5 gap-y-2 border-t border-slate-100 px-4 py-3 text-sm font-medium lg:hidden"><a href="/business-central">Business Central</a><a href="/crm">CRM</a><a href="/noticias">Noticias</a><a href="#contacto">Contacto</a></nav>
+        <nav aria-label="Servicios en móvil" className="flex flex-wrap justify-center gap-x-5 gap-y-2 border-t border-slate-100 px-4 py-3 text-sm font-medium lg:hidden"><a href="/servicios">Servicios</a><a href="/business-central">Business Central</a><a href="/crm">CRM</a><a href="/noticias">Noticias</a><a href="#contacto">Contacto</a></nav>
       </header>
 
       <section id="inicio" className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_#ecfeff,_transparent_34%),linear-gradient(135deg,#f8fafc_0%,#ffffff_48%,#ecfeff_100%)]">
@@ -339,6 +347,7 @@ export default function VortexDynamicsWebsite() {
           </p>
         </div>
 
+        <div className="mt-6"><Button variant="secondary" href="/servicios">Explorar todo el ecosistema Microsoft</Button></div>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Card key={service.title} className={`animate-fade-up p-7 hover:-translate-y-2 hover:border-teal-100 hover:shadow-xl hover:shadow-teal-900/10 animate-delay-${Math.min(index + 1, 3)}`}>
@@ -347,6 +356,7 @@ export default function VortexDynamicsWebsite() {
               </div>
               <h3 className="text-xl font-semibold">{service.title}</h3>
               <p className="mt-3 leading-7 text-slate-600">{service.text}</p>
+              {service.href ? <a href={service.href} className="mt-4 inline-flex font-semibold text-teal-800 underline underline-offset-4">Conocer el servicio</a> : null}
             </Card>
           ))}
         </div>
@@ -481,7 +491,7 @@ export default function VortexDynamicsWebsite() {
               <Image src="/microsoft-partner.jpg" alt="Microsoft Partner" width={738} height={297} className="h-auto w-[220px] max-w-full object-contain" />
             </div>
             <p className="leading-7 text-slate-400">
-              Consultoría especializada en Microsoft Dynamics 365 Business Central, CRM, Power Platform e inteligencia artificial.
+              Consultoría e integración de Business Central, CRM, Microsoft 365, Power Platform, Power BI, Fabric, Copilot, Azure y seguridad Microsoft.
             </p>
           </div>
 
