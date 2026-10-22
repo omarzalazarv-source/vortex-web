@@ -5,7 +5,7 @@ Atribución: especialidad profesional confirmada; falta identificar un proyecto 
 
 ## Base confirmada
 
-Omar se ha presentado como consultor funcional senior con experiencia en migraciones de Dynamics NAV a Business Central. Esta especialidad no permite afirmar por sí sola que exista un proyecto específico ejecutado por Vortex ni atribuirle resultados.
+El equipo está formado íntegramente por profesionales sénior y cuenta con 11 años de experiencia. Sus especialidades incluyen las migraciones de Dynamics NAV a Business Central. Esta especialidad no permite afirmar por sí sola que exista un proyecto específico ejecutado por Vortex ni atribuirle resultados.
 
 ## Texto propuesto
 
@@ -25,6 +25,6 @@ Omar se ha presentado como consultor funcional senior con experiencia en migraci
 
 - Un proyecto real: sector y alcance divulgable.
 - Versión de origen y entorno de destino, si se pueden mencionar.
-- Papel de Omar y atribución correcta a Vortex o experiencia profesional anterior.
+- Papel del equipo y atribución correcta a Vortex o experiencia profesional anterior.
 - Tareas efectivamente realizadas y un resultado verificable.
 - Confirmación de que el resumen anonimizado puede publicarse.
