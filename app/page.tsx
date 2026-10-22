@@ -204,11 +204,7 @@ export const metadata: Metadata = {
     "Power BI",
     "Microsoft 365",
   ],
-  icons: {
-    icon: logoUrl,
-    shortcut: logoUrl,
-    apple: logoUrl,
-  },
+
 };
 
 export default function VortexDynamicsWebsite() {
