@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import { SiteHeader, SiteFooter } from "./SiteChrome";
 import ContactForm from "./ContactForm";
 
 export type ServiceContent = {
@@ -11,18 +10,8 @@ export type ServiceContent = {
 export default function ServicePage({ content }: { content: ServiceContent }) {
   return (
     <div className="min-h-screen bg-white text-slate-950">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
-          <Link href="/" aria-label="Vortex Dynamics, inicio"><Image src="/vortexdynamics.png" alt="Vortex Dynamics" width={180} height={90} className="h-12 w-auto object-contain" /></Link>
-          <nav aria-label="Navegación principal" className="flex flex-wrap gap-4 text-sm font-semibold">
-            <Link href="/servicios">Servicios</Link>
-            <Link href="/business-central" aria-current={content.slug === "business-central" ? "page" : undefined}>Business Central</Link>
-            <Link href="/crm" aria-current={content.slug === "crm" ? "page" : undefined}>CRM</Link>
-            <Link href="/noticias">Noticias</Link><a href="#diagnostico" className="text-teal-700">Solicitar diagnóstico</a>
-          </nav>
-        </div>
-      </header>
-      <main>
+      <SiteHeader contactHref="#diagnostico" />
+      <main id="contenido">
         <section className="bg-gradient-to-br from-teal-50 via-white to-cyan-50 px-6 py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
@@ -62,7 +51,7 @@ export default function ServicePage({ content }: { content: ServiceContent }) {
           </div>
         </section>
       </main>
-      <footer className="bg-slate-950 px-6 py-10 text-slate-300"><div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-5"><Link href="/">Vortex Dynamics IT Consulting</Link><a href="mailto:direccion-proyectos@vortexdynamics.es">direccion-proyectos@vortexdynamics.es</a><a href="tel:+34951547626">951 547 626</a></div></footer>
+      <SiteFooter />
     </div>
   );
 }

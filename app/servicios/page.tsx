@@ -1,5 +1,5 @@
+import { SiteHeader, SiteFooter } from "../components/SiteChrome";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "../components/ContactForm";
 import { microsoftServices } from "../lib/microsoft-services";
@@ -15,11 +15,8 @@ export const metadata: Metadata = {
 export default function ServiciosPage() {
   return (
     <div className="min-h-screen bg-white text-slate-950">
-      <header className="border-b border-slate-200"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5 px-6 py-4">
-        <Link href="/" aria-label="Vortex Dynamics, inicio"><Image src="/vortexdynamics.png" alt="Vortex Dynamics" width={180} height={90} className="h-12 w-auto object-contain" /></Link>
-        <nav aria-label="Navegación principal" className="flex flex-wrap gap-5 text-sm font-semibold"><Link href="/servicios" aria-current="page">Servicios</Link><Link href="/business-central">Business Central</Link><Link href="/crm">CRM</Link><Link href="/noticias">Noticias</Link><a href="#diagnostico" className="text-teal-700">Solicitar diagnóstico</a></nav>
-      </div></header>
-      <main>
+      <SiteHeader contactHref="#diagnostico" />
+      <main id="contenido">
         <section className="bg-gradient-to-br from-teal-50 via-white to-cyan-50 px-6 py-20"><div className="mx-auto max-w-7xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-teal-700">El ecosistema Microsoft, conectado</p>
           <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">Tecnología que conecta cada área de tu empresa.</h1>
@@ -38,7 +35,7 @@ export default function ServiciosPage() {
         </section>
         <section id="diagnostico" className="scroll-mt-8 bg-teal-50 px-6 py-20"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2"><div><p className="text-sm font-semibold uppercase tracking-widest text-teal-700">Conecta tu negocio</p><h2 className="mt-3 text-3xl font-semibold">Cuéntanos qué necesitas mejorar.</h2><p className="mt-5 text-lg leading-8 text-slate-600">En una llamada inicial gratuita de 30 minutos revisamos tu situación, los equipos implicados y las soluciones que podrían encajar. Después definimos los siguientes pasos para concretar el proyecto.</p><a href="https://wa.me/34951547626" className="mt-6 inline-flex font-semibold text-teal-800 underline">Hablar por WhatsApp</a></div><ContactForm source="/servicios" /></div></section>
       </main>
-      <footer className="bg-slate-950 px-6 py-10 text-slate-300"><div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-5"><Link href="/">Vortex Dynamics IT Consulting</Link><a href="mailto:direccion-proyectos@vortexdynamics.es">direccion-proyectos@vortexdynamics.es</a><a href="tel:+34951547626">951 547 626</a></div></footer>
+      <SiteFooter />
     </div>
   );
 }

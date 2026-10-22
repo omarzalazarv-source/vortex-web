@@ -1,3 +1,4 @@
+import { SiteHeader, SiteFooter } from "../components/SiteChrome";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function NoticiasPage() {
   return (
-    <main className="min-h-screen bg-slate-50 px-6 py-16 text-slate-950 md:py-24">
+    <><SiteHeader /><main id="contenido" className="min-h-screen bg-slate-50 px-6 py-16 text-slate-950 md:py-24">
       <div className="mx-auto max-w-4xl">
         <nav aria-label="Ruta de navegación" className="mb-10 text-sm text-slate-600">
           <Link href="/" className="font-medium text-teal-700 hover:underline">Vortex Dynamics</Link>
@@ -42,6 +43,6 @@ export default function NoticiasPage() {
           </div>
         </aside>
       </div>
-    </main>
+    </main><SiteFooter /></>
   );
 }
