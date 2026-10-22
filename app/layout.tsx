@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  verification: { google: "oyaXK5ucD3iInWuX1K78Y0fzs9uoiYYCGU8-J1uQCx8" },
   title: "Vortex Dynamics | Business Central y Dynamics 365 CRM",
   description: "Consultoría e implantación de ERP, CRM y Power Platform para conectar los procesos de tu empresa.",
 };
