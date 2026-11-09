@@ -2,6 +2,7 @@ import { SiteHeader, SiteFooter } from "../components/SiteChrome";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactForm from "../components/ContactForm";
+import VortexProducts from "../components/VortexProducts";
 import { microsoftServices } from "../lib/microsoft-services";
 
 const title = "Servicios Microsoft: ERP, CRM, Azure e IA | Vortex Dynamics";
@@ -33,6 +34,7 @@ export default function ServiciosPage() {
           </article>)}
           <aside className="rounded-3xl bg-slate-950 p-7 text-white md:p-9"><h2 className="text-2xl font-semibold">Consultoría, integración y acompañamiento</h2><p className="mt-5 leading-8 text-slate-300">Partimos de tus procesos para definir prioridades, alcance e integraciones. Preparamos la migración, las pruebas y la formación de los equipos y acompañamos el arranque y la evolución de la solución.</p><p className="mt-4 leading-8 text-slate-300">La configuración, las licencias y los servicios necesarios se concretan en la propuesta de cada proyecto.</p></aside>
         </section>
+        <VortexProducts />
         <section id="diagnostico" className="scroll-mt-8 bg-teal-50 px-6 py-20"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2"><div><p className="text-sm font-semibold uppercase tracking-widest text-teal-700">Conecta tu negocio</p><h2 className="mt-3 text-3xl font-semibold">Cuéntanos qué necesitas mejorar.</h2><p className="mt-5 text-lg leading-8 text-slate-600">En una llamada inicial gratuita de 30 minutos revisamos tu situación, los equipos implicados y las soluciones que podrían encajar. Después definimos los siguientes pasos para concretar el proyecto.</p><a href="https://wa.me/34951547626" className="mt-6 inline-flex font-semibold text-teal-800 underline">Hablar por WhatsApp</a></div><ContactForm source="/servicios" /></div></section>
       </main>
       <SiteFooter />

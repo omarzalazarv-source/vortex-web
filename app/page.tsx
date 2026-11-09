@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./components/ContactForm";
+import VortexProducts from "./components/VortexProducts";
 import { SiteHeader, SiteFooter } from "./components/SiteChrome";
 import styles from "./page.module.css";
 
@@ -69,6 +70,7 @@ export default function Home() {
         <div className={styles.sectionHeading}><div><p className={styles.kicker}>SOLUCIONES QUE TRABAJAN JUNTAS</p><h2>Un ecosistema.<br />Muchas posibilidades.</h2></div><Link className={styles.outlineLink} href="/servicios">Todos los servicios <span aria-hidden="true">↗</span></Link></div>
         <div className={styles.serviceGrid}>{services.map(([no,title,product,text,href])=><Link href={href} key={no} id={no === "01" ? "business-central" : no === "02" ? "crm" : undefined} className={styles.serviceCard}><div><span className={styles.number}>{no}</span><span aria-hidden="true">↗</span></div><p className={styles.product}>{product}</p><h3>{title}</h3><p>{text}</p></Link>)}<div className={styles.connectCard}><span aria-hidden="true">↗</span><h3>El valor está<br />en conectarlo.</h3><p>Diseñamos las integraciones que dan continuidad a tus procesos.</p><a href="#contacto">Cuéntanos tu idea →</a></div></div>
       </div></section>
+      <VortexProducts />
       <section className={styles.journeys} id="integraciones"><div className={styles.section}><p className={styles.eyebrow}>DEL PROCESO A LA SOLUCIÓN</p><h2>Que la información avance.<br /><em>Y tu negocio también.</em></h2><div className={styles.journeyGrid}>
         {[["Del contacto a la factura","CRM → Business Central","Da continuidad a la oportunidad comercial y su gestión administrativa."],["Del pedido al almacén","Ventas → Operaciones","Conecta el pedido con compras, inventario y preparación de la entrega."],["Del dato a la decisión","Business Central → Power BI","Transforma la información operativa en indicadores para tu equipo."]].map(([title,path,text])=><article key={title}><p>{path}</p><h3>{title}</h3><span>{text}</span></article>)}
       </div><p className={styles.journeyNote}>El alcance, las licencias y las integraciones se definen según las necesidades de cada proyecto.</p></div></section>
